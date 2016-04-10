@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 SRC_PATH = ./sources
 
-SRC_NAME = 
+SRC_NAME = ft_printf.c printf_fct.c
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
@@ -43,3 +43,6 @@ re: fclean all
 
 norme:
 	norminette $(SRC)
+
+test: all
+	$(CC) -o test main.c $(NAME)

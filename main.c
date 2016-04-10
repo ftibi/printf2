@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/10 16:25:07 by tfolly           ###   ########.fr       */
+/*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
+/*   Updated: 2016/04/10 16:33:17 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "../libft/includes/libft.h"
-# include <stdarg.h>
+#include "includes/ft_printf.h"
 
-int		ft_printf(const char *format, ...);
+int		main(int ac, char **av)
+{
+	int	res;
 
-int		ft_printf_putstr(char *str);
-int		ft_printf_putnbr(int nb);
+	res = ft_printf("Salut comment %s va ?\n", "ca");
+	ft_putnbr(res);
+	ft_putchar('\n');
 
-#endif
+	ft_printf_putnbr(00);
+	ft_putchar('\n');
+
+
+
+	return (0);
+}
