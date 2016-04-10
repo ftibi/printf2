@@ -46,3 +46,4 @@ norme:
 
 test: all
 	$(CC) -o test main.c $(NAME)
+	./test
