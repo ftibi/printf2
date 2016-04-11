@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/11 14:06:41 by tfolly            #+#    #+#             */
+/*   Updated: 2016/04/11 14:59:12 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/ft_printf.h"
+
+t_data		*new_data()
+{
+	t_data	*new;
+
+	if (!(new = (t_data*)ft_memalloc(sizeof(t_data))))
+		return (0);
+	new->hash = 0;
+	new->plus = 0;
+	new->minus = 0;
+	new->zero = 0;
+	new->space = 0;
+	new->hh = 0;
+	new->h = 0;
+	new->l = 0;
+	new->ll = 0;
+	new->j = 0;
+	new->z = 0;
+	return (new);
+}
+
+void	print_flags(t_data *new)
+{
+	if (DEBUG)
+		ft_putendl("print flags");
+	ft_putnbr(new->hash);
+	ft_putchar('\n');
+	ft_putnbr(new->plus);
+	ft_putchar('\n');
+	ft_putnbr(new->minus);
+	ft_putchar('\n');
+	ft_putnbr(new->zero);
+	ft_putchar('\n');
+	ft_putnbr(new->space);
+	ft_putchar('\n');
+	ft_putnbr(new->hh);
+	ft_putchar('\n');
+	ft_putnbr(new->h);
+	ft_putchar('\n');
+	ft_putnbr(new->l);
+	ft_putchar('\n');
+	ft_putnbr(new->ll);
+	ft_putchar('\n');
+	ft_putnbr(new->j);
+	ft_putchar('\n');
+	ft_putnbr(new->z); 
+	ft_putchar('\n');
+}
