@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:37:25 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/10 19:16:41 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/11 12:51:30 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 const char	*fmt_read(const char *format, va_list ap, int *count)
 {
-	if (format == 0)
+	if (!(*format))
 	{
-		ft_putchar(' ');
+	//	ft_putchar(' ');
 	//	format++;
-		return (format);
+		return (format);	
 	}
-	else if (*format == ' ')
+	if (*format == ' ')
 		format++;
 	else if (*format == '%')
 	{
@@ -80,7 +80,11 @@ int		ft_printf(const char *format, ...)
 			count++;
 		}
 		if (*format == '%')
+		{
+			//ici mettre une fonction qui va parser les flags et les mettre dans une structure
+			//elle va aussi mettre format sur la conversion
 			format = fmt_read(format + 1, ap, &count);
+		}
 	}
 	va_end(ap);
 	return (count);
