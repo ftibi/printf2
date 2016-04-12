@@ -16,12 +16,16 @@ t_data	*parse_flags(const char **fmt)
 {
 	t_data	*data;
 	char	*format;
+    char    *ptr;
+    char    flags[] = "#0-+ hljz";
 
+
+    //il vaut mieux renvoyer format et modif data via le pointeur
 	if (DEBUG)
 		ft_putendl("parse flags");
 	format = (char*)*fmt;
 	data = new_data();
-	while (format && *format && *ft_strchr("#0-+ hljz", *format))
+	while (format && *format && (*(ptr = ft_strchr(flags, (int)*format))))
 	{
 		if (*format == '#')
 			data->hash = 1;
@@ -58,6 +62,6 @@ t_data	*parse_flags(const char **fmt)
 				data->l = 1;
 		}
 		format++;
-	}
+    }
 	return (data);
 }

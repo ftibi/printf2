@@ -82,10 +82,9 @@ int		ft_printf(const char *format, ...)
 		}
 		if (*format == '%')
 		{
-			ft_putendl("before");
+            format++;
 			data = parse_flags(&format);
-			ft_putendl("after");
-			format = fmt_read(format + 1, ap, &count);
+			format = fmt_read(format, ap, &count);
 		}
 		//print_flags(data);
 	}

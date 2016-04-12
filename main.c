@@ -50,7 +50,7 @@ int		main(int ac, char **av)
 //	
 //	a = printf("io %");
 //	ft_putchar('\n');
-	 ft_printf("%lh+j0");
+	 ft_printf("%llhh+j0");
 //	ft_putchar('\n');
 //	printf(" a = %d, b = %d \n", a, b);
 	
