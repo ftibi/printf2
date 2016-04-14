@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 14:05:36 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 15:53:27 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define FT_PRINTF_H
 # include "../libft/includes/libft.h"
 # include <stdarg.h>
-# define DEBUG 1
+# define DEBUG 0
+
+typedef int(*ft_function)(void*, void*);
 
 int		ft_printf(const char *format, ...);
 
@@ -25,7 +27,7 @@ typedef struct		s_fct
 	struct s_fct	*next;
 
 }					t_fct;
-t_fct				*add_fct(t_fct *start, void *fct, char conv);
+//t_fct				*add_fct(t_fct *start, void *fct, char conv);
 void				*get_fct(t_fct *start, char conv);
 t_fct				*fct_init(void);
 
@@ -42,6 +44,8 @@ typedef struct	s_data
 	int			ll;
 	int			j;
 	int			z;
+	int			mwidth; //largeur mini
+	int			precision;
 	char		*fmt;
 }				t_data;
 
@@ -50,9 +54,9 @@ t_data	*new_data(void);
 
 void	print_flags(t_data *data);
 
-int		ft_printf_putstr(char *str);
-int		ft_printf_putnbr(int nb);
-int		ft_printf_puthexa(int nb);
-int		ft_printf_putptr(unsigned long nb);
+int		ft_printf_putstr(char *str, t_data *data);
+int		ft_printf_putnbr(int nb, t_data *data);
+int		ft_printf_puthexa(int nb, t_data *data);
+int		ft_printf_putptr(unsigned long nb, t_data *data);
 
 #endif

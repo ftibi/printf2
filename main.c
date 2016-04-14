@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/11 14:47:05 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 15:51:44 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int		main(int ac, char **av)
 //	int a;
 //	int b;
 //
-//
-//	res = ft_printf("Salut comment %s va ?\n", "ca");
+
+	//ft_putendl(ft_strchr("#0-+ ", 's'));
+
+	 ft_printf("Salut comment %s va ?\n", "ca");
 //	ft_putnbr(res);
 //	ft_putchar('\n');
 //
@@ -50,7 +52,7 @@ int		main(int ac, char **av)
 //	
 //	a = printf("io %");
 //	ft_putchar('\n');
-	 ft_printf("%lh+j0");
+	 //ft_printf("%lh+j0");
 //	ft_putchar('\n');
 //	printf(" a = %d, b = %d \n", a, b);
 	

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:37:25 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 14:23:24 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 16:02:18 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 {
-	void	*fct;
-	char 	*format = data->fmt;
+	ft_function	fct;
+	char 		*format;
+
+	if (DEBUG)
+		ft_putendl("fmt read");
+	format = data->fmt;
 	if (!(*format))
 	{
-	//	ft_putchar(' ');
-	//	format++;
+		//	ft_putchar(' ');
+		//	format++;
 		return (format);	
 	}
 	if (*format == ' ')
 		format++;
-	fct = get_fct(fct_lst, *format);
+	fct = (ft_function)get_fct(fct_lst, *format);
 	if (!fct)
 	{
 		ft_putchar(*format);
@@ -33,51 +37,12 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 		return (format);
 	}
 	else
+	{
+		ft_putendl("read fct");
 		(*count) += fct(data, ap);
+	}
 	format++;
 	return (format);
-
-
-//	else if (*format == '%')
-//	{
-//		ft_putchar(*format);
-//		(*count)++;
-//		format++;
-//	}
-//	else if (*format == 'c')
-//	{
-//		(*count)++;
-//		ft_putchar((char)va_arg(ap, int));
-//		format++;
-//	}
-//	else if (*format == 's')
-//	{
-//		*count += ft_printf_putstr(va_arg(ap, char*));
-//		format++;
-//	}
-//	else if (*format == 'd' || *format == 'i')
-//	{
-//		*count += ft_printf_putnbr(va_arg(ap, int));
-//		format++;
-//	}
-//	else if (*format == 'x')
-//	{
-//		*count += ft_printf_puthexa(va_arg(ap, int));
-//		format++;
-//	}
-//	else if (*format == 'p')
-//	{
-//		ft_putstr("0x");
-//*count += ft_printf_putptr(va_arg(ap, unsigned long));
-//		format++;
-//	}
-//	else
-//	{
-//		(*count)++;
-//		ft_putchar(*format);
-//		format++;
-//	}
-//	return (format);
 }
 
 int		ft_printf(const char *format, ...)
@@ -101,6 +66,8 @@ int		ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			data = parse_flags(&format);
+			ft_putchar(*format);
+			ft_putchar('\n');
 			data->fmt = (char*)format; //je peux faire ca dans parse flags
 			format = fmt_read(data, ap, &count, fct_lst);
 		}

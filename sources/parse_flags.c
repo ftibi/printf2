@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 14:21:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/11 14:58:36 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 16:03:51 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ t_data	*parse_flags(const char **fmt)
 {
 	t_data	*data;
 	char	*format;
+	int		nb;
 
 	if (DEBUG)
 		ft_putendl("parse flags");
 	format = (char*)*fmt;
+	format++;
+	ft_putchar(*format);
 	data = new_data();
-	while (format && *format && *ft_strchr("#0-+ hljz", *format))
+	while (format && *format && ft_strchr("#0-+ ", *format))
 	{
+		if (DEBUG)
+			ft_putendl("parse flags 1.5");
 		if (*format == '#')
 			data->hash = 1;
 		if (*format == '0')
@@ -33,6 +38,37 @@ t_data	*parse_flags(const char **fmt)
 			data->plus = 1;
 		if (*format == ' ')
 			data->space = 1;
+		format++;
+	}
+	if (DEBUG)
+		ft_putendl("parse flags 2");
+	if (ft_isdigit(*format))
+	{
+		nb = *format;
+		while (ft_isdigit(*format))
+		{
+			nb = 10 * nb + *format;
+			format++;
+		}
+		data->mwidth = nb;
+	}
+	if (DEBUG)
+		ft_putendl("parse flags3");
+	if (*format == '.')
+	{
+		format++;
+		nb = 0;
+		while (ft_isdigit(*format))
+		{
+			nb = 10 * nb + *format;
+			format++;
+		}
+		data->precision = nb;	
+	}
+	if (DEBUG)
+		ft_putendl("parse flags4");
+	while (format && *format && ft_strchr("hljz", *format))
+	{
 		if (*format == 'j')
 			data->j = 1;
 		if (*format == 'z')
@@ -59,5 +95,8 @@ t_data	*parse_flags(const char **fmt)
 		}
 		format++;
 	}
+	if (DEBUG)
+		ft_putendl("end parse flags");
+	fmt = (const char**)&format;
 	return (data);
 }

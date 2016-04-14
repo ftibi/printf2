@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 14:06:41 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/11 14:59:12 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 15:55:28 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_data		*new_data()
 {
 	t_data	*new;
 
+	if (DEBUG)
+		ft_putendl("new data");
 	if (!(new = (t_data*)ft_memalloc(sizeof(t_data))))
 		return (0);
 	new->hash = 0;
@@ -29,6 +31,11 @@ t_data		*new_data()
 	new->ll = 0;
 	new->j = 0;
 	new->z = 0;
+	new->mwidth = 0;
+	new->precision = 1;
+	new->fmt = 0;
+	if (DEBUG)
+		ft_putendl("end new data");
 	return (new);
 }
 

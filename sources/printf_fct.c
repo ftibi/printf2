@@ -6,18 +6,19 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 16:14:09 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/10 18:27:35 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 15:29:14 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_printf_putptr(unsigned long nb)
+int		ft_printf_putptr(unsigned long nb, t_data *data)
 {
 	unsigned long	pow;
 	unsigned long	res;
 	int				count;
 
+	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 2;
 	if (nb == 0)
 	{
@@ -41,12 +42,13 @@ int		ft_printf_putptr(unsigned long nb)
 	return (count);	
 }
 
-int		ft_printf_puthexa(int nb)
+int		ft_printf_puthexa(int nb, t_data *data)
 {
 	unsigned int	pow;
 	unsigned int	res;
 	int				count;
 
+	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 0;
 	if (nb == 0)
 	{
@@ -70,10 +72,11 @@ int		ft_printf_puthexa(int nb)
 	return (count);	
 }
 
-int		ft_printf_putstr(char *str)
+int		ft_printf_putstr(char *str, t_data *data)
 {
 	int		count;
 
+	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	if (!str)
 	{
 		ft_putstr("(null)");
@@ -89,12 +92,13 @@ int		ft_printf_putstr(char *str)
 	return (count);
 }
 
-int		ft_printf_putnbr(int nb)
+int		ft_printf_putnbr(int nb, t_data *data)
 {
 	unsigned long long	pow;
 	unsigned int	res;
 	int				count;
 
+	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 0;
 	if (nb == 0)
 	{
