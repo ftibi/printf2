@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/11 14:58:39 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/14 14:05:36 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 # define DEBUG 1
 
 int		ft_printf(const char *format, ...);
+
+typedef struct		s_fct
+{
+	char			conv;
+	void			*fct;
+	struct s_fct	*next;
+
+}					t_fct;
+t_fct				*add_fct(t_fct *start, void *fct, char conv);
+void				*get_fct(t_fct *start, char conv);
+t_fct				*fct_init(void);
 
 typedef struct	s_data
 {
@@ -31,6 +42,7 @@ typedef struct	s_data
 	int			ll;
 	int			j;
 	int			z;
+	char		*fmt;
 }				t_data;
 
 t_data	*parse_flags(const char **fmt);
