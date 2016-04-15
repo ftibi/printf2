@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 15:53:27 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:50:47 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ t_data	*new_data(void);
 
 void	print_flags(t_data *data);
 
-int		ft_printf_putstr(char *str, t_data *data);
-int		ft_printf_putnbr(int nb, t_data *data);
-int		ft_printf_puthexa(int nb, t_data *data);
-int		ft_printf_putptr(unsigned long nb, t_data *data);
+int		ft_printf_putstr(t_data *data, va_list ap);
+int		ft_printf_putnbr(t_data *data, va_list ap);
+int		ft_printf_puthexa(t_data *data, va_list ap);
+int		ft_printf_putptr(t_data *data, va_list ap);
+int		ft_printf_putchar(t_data *data, va_list ap);
 
 #endif

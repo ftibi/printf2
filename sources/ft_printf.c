@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:37:25 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 16:02:18 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:30:03 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	if (DEBUG)
 		ft_putendl("fmt read");
 	format = data->fmt;
+	format++;
 	if (!(*format))
 	{
 		//	ft_putchar(' ');
@@ -31,6 +32,7 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	fct = (ft_function)get_fct(fct_lst, *format);
 	if (!fct)
 	{
+	//	ft_putendl("no function");
 		ft_putchar(*format);
 		format++;
 		(*count)++;
@@ -38,7 +40,7 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	}
 	else
 	{
-		ft_putendl("read fct");
+//		ft_putendl("read fct");
 		(*count) += fct(data, ap);
 	}
 	format++;
@@ -66,8 +68,8 @@ int		ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			data = parse_flags(&format);
-			ft_putchar(*format);
-			ft_putchar('\n');
+	//		ft_putchar(*format);
+	//		ft_putchar('\n');
 			data->fmt = (char*)format; //je peux faire ca dans parse flags
 			format = fmt_read(data, ap, &count, fct_lst);
 		}

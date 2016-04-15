@@ -6,20 +6,23 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 16:14:09 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 15:29:14 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:54:12 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_printf_putptr(unsigned long nb, t_data *data)
+int		ft_printf_putptr(t_data *data, va_list ap)
 {
 	unsigned long	pow;
 	unsigned long	res;
 	int				count;
+	int				nb;
 
 	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 2;
+
+	nb = va_arg(ap, int);
 	if (nb == 0)
 	{
 		ft_putchar('0');
@@ -42,12 +45,14 @@ int		ft_printf_putptr(unsigned long nb, t_data *data)
 	return (count);	
 }
 
-int		ft_printf_puthexa(int nb, t_data *data)
+int		ft_printf_puthexa(t_data *data, va_list ap)
 {
 	unsigned int	pow;
 	unsigned int	res;
 	int				count;
+	int				nb;
 
+	nb = va_arg(ap, int);
 	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 0;
 	if (nb == 0)
@@ -72,11 +77,13 @@ int		ft_printf_puthexa(int nb, t_data *data)
 	return (count);	
 }
 
-int		ft_printf_putstr(char *str, t_data *data)
+int		ft_printf_putstr(t_data *data, va_list ap)
 {
 	int		count;
+	char	*str;
 
 	data->mwidth = 1; //a retirer, c juste pour utiliser data
+	str = va_arg(ap, char*);
 	if (!str)
 	{
 		ft_putstr("(null)");
@@ -92,12 +99,14 @@ int		ft_printf_putstr(char *str, t_data *data)
 	return (count);
 }
 
-int		ft_printf_putnbr(int nb, t_data *data)
+int		ft_printf_putnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
 	unsigned int	res;
 	int				count;
+	int				nb;
 
+	nb = va_arg(ap, int);
 	data->mwidth = 1; //a retirer, c juste pour utiliser data
 	count = 0;
 	if (nb == 0)
@@ -125,4 +134,16 @@ int		ft_printf_putnbr(int nb, t_data *data)
 		count++;
 	}
 	return (count);	
+}
+
+int		ft_printf_putchar(t_data *data, va_list ap)
+{
+	int		count;
+	char	c;
+
+	data->mwidth = 1;
+	count = 0;
+	c = (char)va_arg(ap, int);
+	ft_putchar(c);
+	return (1);
 }

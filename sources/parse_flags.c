@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 14:21:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 16:03:51 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:56:25 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_data	*parse_flags(const char **fmt)
 		ft_putendl("parse flags");
 	format = (char*)*fmt;
 	format++;
-	ft_putchar(*format);
+//	ft_putchar(*format);
 	data = new_data();
 	while (format && *format && ft_strchr("#0-+ ", *format))
 	{

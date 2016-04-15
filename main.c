@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 15:51:44 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:59:20 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int ac, char **av)
 
 	//ft_putendl(ft_strchr("#0-+ ", 's'));
 
-	 ft_printf("Salut comment %s va ?\n", "ca");
+	 ft_printf("Salut comment %s va %s en %d?\n", "ca", "bien", 2016);
 //	ft_putnbr(res);
 //	ft_putchar('\n');
 //

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 12:06:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/14 15:56:15 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 10:52:40 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static t_fct		*add_fct(t_fct *start, void *fct, char conv)
 
 void	*get_fct(t_fct *start, char conv)
 {
+	if (DEBUG)
+		ft_putendl("get fct");
 	while (start)
 	{
 		if (start->conv == conv)
@@ -55,7 +57,7 @@ t_fct		*fct_init()
 
 	if (DEBUG)
 		ft_putendl("fct init");
-	list = new_fct(ft_putchar, 'c');
+	list = new_fct(ft_printf_putchar, 'c');
 	list = add_fct(list, ft_printf_putstr, 's');
 	list = add_fct(list, ft_printf_putnbr, 'i');
 	list = add_fct(list, ft_printf_putnbr, 'd');
