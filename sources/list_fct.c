@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 12:06:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 10:52:40 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 11:49:07 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putstr, 's');
 	list = add_fct(list, ft_printf_putnbr, 'i');
 	list = add_fct(list, ft_printf_putnbr, 'd');
+	list = add_fct(list, ft_printf_putnbr, 'u');
 	list = add_fct(list, ft_printf_puthexa, 'x');
 	list = add_fct(list, ft_printf_putptr, 'p');
+	list = add_fct(list, ft_printf_putoct, 'o');
+	list = add_fct(list, ft_printf_putlchar, 'C');
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 11:08:39 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 11:19:17 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int		main(int ac, char **av)
 {
-//	int	res;
+	int	res;
 //	int ptr = 400;
-//	int a;
-//	int b;
-//
+	int a;
+	int b;
+
 
 	//ft_putendl(ft_strchr("#0-+ ", 's'));
 
-	 ft_printf("Salut comment %s va %s en %d?\n", "ca", "bien", 2016);
+//	 ft_printf("Salut comment %s va %s en %d?\n", "ca", "bien", 2016);
 //	ft_putnbr(res);
 //	ft_putchar('\n');
 //
@@ -45,9 +45,11 @@ int		main(int ac, char **av)
 //	//printf("% Zoooo\n");
 //	//ft_printf("% Zoooo\n");
 //	
-//	a = printf("addresse dun pointeur : %p\n", &ptr);
-//	b = ft_printf("addresse dun pointeur : %p\n", &ptr);
-//	printf(" a = %d, b = %d \n", a, b);
+	int *ptr;
+	ptr = NULL;
+	a = printf("io addresse dun pointeur : %p\n", ptr);
+	b = ft_printf("ft addresse dun pointeur : %p\n", ptr);
+	printf(" a = %d, b = %d \n", a, b);
 //
 //	
 //	a = printf("io %");
