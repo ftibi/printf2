@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 14:21:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 11:05:30 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:07:08 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ t_data	*parse_flags(const char **fmt)
 	}
 	if (DEBUG)
 		ft_putendl("end parse flags");
+	data->fmt = format;
+//	ft_putendl(data->fmt);
+	//ici modif data pour pouvoir passer lc en C par exemple
 	fmt = (const char**)&format;
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:37:25 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 11:06:29 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:05:27 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	if (DEBUG)
 		ft_putendl("fmt read");
 	format = data->fmt;
-	format++;
+//	format++;
 	if (!(*format))
 	{
 		//	ft_putchar(' ');
 		//	format++;
 		return (format);	
 	}
-	if (*format == ' ')
-		format++;
+//	if (*format == ' ')
+//		format++;
 	fct = (ft_function)get_fct(fct_lst, *format);
 	if (!fct)
 	{
@@ -70,7 +70,8 @@ int		ft_printf(const char *format, ...)
 			data = parse_flags(&format);
 	//		ft_putchar(*format);
 	//		ft_putchar('\n');
-			data->fmt = (char*)format; //je peux faire ca dans parse flags
+	//		data->fmt = (char*)format; //je peux faire ca dans parse flags
+	//		ft_putendl(data->fmt);
 			format = fmt_read(data, ap, &count, fct_lst);
 		}
 		//print_flags(data);
