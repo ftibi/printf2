@@ -6,13 +6,13 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 14:21:13 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 15:07:08 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:19:31 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_data	*parse_flags(const char **fmt)
+t_data	*parse_flags(char **fmt)
 {
 	t_data	*data;
 	char	*format;
@@ -100,6 +100,18 @@ t_data	*parse_flags(const char **fmt)
 	data->fmt = format;
 //	ft_putendl(data->fmt);
 	//ici modif data pour pouvoir passer lc en C par exemple
-	fmt = (const char**)&format;
+	data = data_mod(data);
+	//fmt = &format;
 	return (data);
 }
+
+t_data	*data_mod(t_data *data)
+{
+	if (*(data->fmt) == 'c' && data->l)
+	{
+		*(data->fmt) = 'C';
+		data->l = 0;
+	}
+	return (data);
+}
+

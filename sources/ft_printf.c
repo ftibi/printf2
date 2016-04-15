@@ -6,13 +6,13 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:37:25 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 15:05:27 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:53:19 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
+char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 {
 	ft_function	fct;
 	char 		*format;
@@ -47,15 +47,17 @@ const char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	return (format);
 }
 
-int		ft_printf(const char *format, ...)
+int		ft_printf(const char *format2, ...)
 {
 	va_list		ap;
 	int			count;
 	t_data		*data;
 	t_fct		*fct_lst;
+	char		*format;
 
+	format = ft_strdup(format2);
 	count = 0;
-	va_start(ap, format);
+	va_start(ap, format2);
 	fct_lst = fct_init();
 	while (*format)
 	{

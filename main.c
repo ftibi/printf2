@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 15:07:18 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 16:06:51 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		main(int ac, char **av)
 	
 	int i = 119070;
 
-	ft_printf("char : %C \n", i); 
-
+	//ft_printf("char : %C \n", i); 
+	printf("{%S}", NULL);
 //	ft_putendl(str);
 //	rev  = ft_strrev(str);
 //	ft_putendl(rev);

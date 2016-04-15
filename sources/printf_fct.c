@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 16:14:09 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 14:32:52 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 16:08:05 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,38 @@ int		four_oct(int c)
 	mask = fill_mask(mask, c);
 	count = print_mask(mask, 4);
 
+	return (count);
+}
+
+
+int		ft_printf_putlstr(t_data *data, va_list ap)
+{
+	int		count;
+	int		*str;
+
+	data->mwidth = 1;
+	str = va_arg(ap, int*);
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	count = 0;
+	while (*str)
+	{
+		if (*str < 128)
+		{
+			ft_putchar(*str);
+			count++;
+		}
+		else if (*str < 2048)
+			count +=  (two_oct(*str));
+		else if (*str < ft_pow(2, 15) * 2 - 1)
+			count += three_oct(*str);
+		else
+			count += four_oct(*str);
+		str++;
+	}
 	return (count);
 }
 

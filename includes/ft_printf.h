@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 13:46:29 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:54:07 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,13 @@ typedef struct	s_data
 	char		*fmt;
 }				t_data;
 
-t_data	*parse_flags(const char **fmt);
+t_data	*parse_flags(char **fmt);
 t_data	*new_data(void);
 
 void	print_flags(t_data *data);
 
 int		ft_printf_putstr(t_data *data, va_list ap);
+int		ft_printf_putlstr(t_data *data, va_list ap);
 int		ft_printf_putnbr(t_data *data, va_list ap);
 int		ft_printf_puthexa(t_data *data, va_list ap);
 int		ft_printf_putptr(t_data *data, va_list ap);
@@ -65,4 +66,6 @@ int		ft_printf_putlchar(t_data *data, va_list ap);
 char	*fill_mask(char *mask, int c);
 int		print_mask(char *mask, int oct);
 char	*ft_strrev(char *str);
+
+t_data	*data_mod(t_data *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 12:06:45 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 11:49:07 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 15:54:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putptr, 'p');
 	list = add_fct(list, ft_printf_putoct, 'o');
 	list = add_fct(list, ft_printf_putlchar, 'C');
+	list = add_fct(list, ft_printf_putlstr, 'S');
 	return (list);
 }
