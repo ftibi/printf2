@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 10:59:20 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 11:08:39 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,7 @@ int		main(int ac, char **av)
 //	
 //	a = printf("io %");
 //	ft_putchar('\n');
-<<<<<<< HEAD
 	 //ft_printf("%lh+j0");
-=======
-	 ft_printf("%llhh+j0");
->>>>>>> 84b3ff2b1bb62158cb5188a0a0f0350e8daca8e6
 //	ft_putchar('\n');
 //	printf(" a = %d, b = %d \n", a, b);
 	
