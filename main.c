@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 11:19:17 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 14:32:15 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ int		main(int ac, char **av)
 	int a;
 	int b;
 
+	char str[] = "salut comment ca va";
+	char *rev;
+	
+	int i = 119070;
+
+	ft_printf("char : %C \n", i); 
+
+//	ft_putendl(str);
+//	rev  = ft_strrev(str);
+//	ft_putendl(rev);
 
 	//ft_putendl(ft_strchr("#0-+ ", 's'));
 
@@ -45,11 +55,11 @@ int		main(int ac, char **av)
 //	//printf("% Zoooo\n");
 //	//ft_printf("% Zoooo\n");
 //	
-	int *ptr;
-	ptr = NULL;
-	a = printf("io addresse dun pointeur : %p\n", ptr);
-	b = ft_printf("ft addresse dun pointeur : %p\n", ptr);
-	printf(" a = %d, b = %d \n", a, b);
+//	int *ptr;
+//	ptr = NULL;
+//	a = printf("io addresse dun pointeur : %p\n", ptr);
+//	b = ft_printf("ft addresse dun pointeur : %p\n", ptr);
+//	printf(" a = %d, b = %d \n", a, b);
 //
 //	
 //	a = printf("io %");

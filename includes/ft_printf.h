@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 12:27:59 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 13:46:29 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int		ft_printf_putoct(t_data *data, va_list ap);
 int		ft_printf_putlchar(t_data *data, va_list ap);
 
 char	*fill_mask(char *mask, int c);
-int		print_mask(char *mask);
+int		print_mask(char *mask, int oct);
 char	*ft_strrev(char *str);
 #endif

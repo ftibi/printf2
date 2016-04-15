@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 16:14:09 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 12:35:14 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/15 14:32:52 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int		two_oct(int c)
 {
 	char *mask;
 	int count;
-	char	*tmp;
 
+//	ft_putendl("2oct");
 	mask = ft_strdup("110xxxxx10xxxxxx");
 	mask = fill_mask(mask, c);
-	count = print_mask(mask);
+	count = print_mask(mask, 2);
 	return (count);
 }
 
@@ -30,6 +30,9 @@ int		three_oct(int c)
 	int count;
 
 	mask = ft_strdup("1110xxxx10xxxxxx10xxxxxx");
+	mask = fill_mask(mask, c);
+	count = print_mask(mask, 3);
+
 	return (count);
 }
 
@@ -39,6 +42,9 @@ int		four_oct(int c)
 	int count;
 
 	mask = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx");
+	mask = fill_mask(mask, c);
+	count = print_mask(mask, 4);
+
 	return (count);
 }
 
@@ -47,6 +53,7 @@ int		ft_printf_putlchar(t_data *data, va_list ap)
 {
 	int		c;
 
+	data->mwidth = 1;
 	c = va_arg(ap, int);
 	if (c < 128)
 	{
@@ -59,6 +66,7 @@ int		ft_printf_putlchar(t_data *data, va_list ap)
 		return (three_oct(c));
 	else
 		return (four_oct(c));
+//	return (0);//a retirer
 }
 
 
