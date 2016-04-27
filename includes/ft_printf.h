@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 15:54:07 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/27 15:41:48 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,14 @@ void	print_flags(t_data *data);
 int		ft_printf_putstr(t_data *data, va_list ap);
 int		ft_printf_putlstr(t_data *data, va_list ap);
 int		ft_printf_putnbr(t_data *data, va_list ap);
+int		ft_printf_putunbr(t_data *data, va_list ap);
+int		ft_printf_putlunbr(t_data *data, va_list ap);
+int		ft_printf_putlnbr(t_data *data, va_list ap);
 int		ft_printf_puthexa(t_data *data, va_list ap);
 int		ft_printf_putptr(t_data *data, va_list ap);
 int		ft_printf_putchar(t_data *data, va_list ap);
 int		ft_printf_putoct(t_data *data, va_list ap);
+int		ft_printf_putloct(t_data *data, va_list ap);
 int		ft_printf_putlchar(t_data *data, va_list ap);
 
 char	*fill_mask(char *mask, int c);

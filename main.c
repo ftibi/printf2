@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/15 16:06:51 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/27 15:57:56 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int		main(int ac, char **av)
 	char *rev;
 	
 	int i = 119070;
+	unsigned long z = ULONG_MAX;
 
+	printf("%lu\n", z);
+	ft_printf("%U\n", z);
 	//ft_printf("char : %C \n", i); 
-	printf("{%S}", NULL);
+//	printf("{%S}", NULL);
 //	ft_putendl(str);
 //	rev  = ft_strrev(str);
 //	ft_putendl(rev);
