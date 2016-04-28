@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 15:42:47 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/28 15:57:12 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/28 16:12:55 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ t_lst	*new_lst(char c)
 		ft_error("malloc error");
 	new->next = 0;
 	new->c = c;
+	return (new);
+}
+
+t_lst				*pushfront_lst(t_lst *lst, char c)
+{
+	t_lst	*new;
+
+	new = new_lst(c);
+	new->next = lst;
 	return (new);
 }
 

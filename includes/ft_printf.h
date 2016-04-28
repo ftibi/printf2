@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/28 15:55:06 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/28 16:41:39 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,15 @@ typedef struct		s_lst //LC pour stocker les chaines a afficher
 }					t_lst;
 t_lst				*new_lst(char c);
 t_lst				*pushback_lst(t_lst *lst, char c);
+t_lst				*pushfront_lst(t_lst *lst, char c);
 int					lst_len(t_lst *lst);
 void				print_lst(t_lst *lst);
 void				free_lst(t_lst *lst);
+t_lst				*format_lst(t_lst *lst, t_data *data);
+t_lst				*hashfmt(t_lst *lst, t_data *data);
+t_lst				*mwidthfmt(t_lst *lst, t_data *data);
+t_lst				*plusfmt(t_lst *lst, t_data *data);
+
+
 
 #endif
