@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 16:14:09 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/27 15:57:25 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/27 16:16:18 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -391,10 +391,14 @@ int		ft_printf_putchar(t_data *data, va_list ap)
 {
 	int		count;
 	char	c;
-
-	data->mwidth = 1;
+	
 	count = 0;
+	while (count < data->mwidth - 1)
+	{
+		ft_putchar(' ');
+		count++;
+	}
 	c = (char)va_arg(ap, int);
 	ft_putchar(c);
-	return (1);
+	return (count + 1);
 }

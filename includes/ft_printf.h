@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:34:56 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/27 15:41:48 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/04/28 15:55:06 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_fct
 //t_fct				*add_fct(t_fct *start, void *fct, char conv);
 void				*get_fct(t_fct *start, char conv);
 t_fct				*fct_init(void);
+void				ft_error(char *errormsg);
 
 typedef struct	s_data
 {
@@ -72,4 +73,16 @@ int		print_mask(char *mask, int oct);
 char	*ft_strrev(char *str);
 
 t_data	*data_mod(t_data *data);
+
+typedef struct		s_lst //LC pour stocker les chaines a afficher
+{
+	char			c;
+	struct s_lst	*next;
+}					t_lst;
+t_lst				*new_lst(char c);
+t_lst				*pushback_lst(t_lst *lst, char c);
+int					lst_len(t_lst *lst);
+void				print_lst(t_lst *lst);
+void				free_lst(t_lst *lst);
+
 #endif
