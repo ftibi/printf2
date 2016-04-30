@@ -9,7 +9,7 @@
 /*   Updated: 2016/04/28 16:45:21 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+//histoire de
 #include "../includes/ft_printf.h"
 
 t_lst		*format(t_lst *lst, t_data *data) //relire la doc pour voir si jai oublie qqch
