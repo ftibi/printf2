@@ -63,7 +63,7 @@ t_data	*parse_flags(char **fmt)
 			nb = 10 * nb + *format;
 			format++;
 		}
-		data->precision = nb;	
+		data->precision = nb;
 	}
 	if (DEBUG)
 		ft_putendl("parse flags4");
@@ -114,4 +114,3 @@ t_data	*data_mod(t_data *data)
 	}
 	return (data);
 }
-

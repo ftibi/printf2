@@ -74,6 +74,6 @@ void	print_flags(t_data *new)
 	ft_putnbr(new->j);
 	ft_putchar('\n');
 	ft_putstr("z : ");
-	ft_putnbr(new->z); 
+	ft_putnbr(new->z);
 	ft_putchar('\n');
 }

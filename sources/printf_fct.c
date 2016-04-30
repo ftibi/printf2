@@ -129,7 +129,7 @@ int		ft_printf_putloct(t_data *data, va_list ap)
 		pow /= 8;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putoct(t_data *data, va_list ap)
@@ -160,7 +160,7 @@ int		ft_printf_putoct(t_data *data, va_list ap)
 		pow /= 8;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putptr(t_data *data, va_list ap)
@@ -194,7 +194,7 @@ int		ft_printf_putptr(t_data *data, va_list ap)
 		pow /= 16;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_puthexa(t_data *data, va_list ap)
@@ -228,7 +228,7 @@ int		ft_printf_puthexa(t_data *data, va_list ap)
 		pow /= 16;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putstr(t_data *data, va_list ap)
@@ -279,7 +279,7 @@ int		ft_printf_putlunbr(t_data *data, va_list ap)
 		pow /= 10;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putunbr(t_data *data, va_list ap)
@@ -309,7 +309,7 @@ int		ft_printf_putunbr(t_data *data, va_list ap)
 		pow /= 10;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putlnbr(t_data *data, va_list ap)
@@ -346,7 +346,7 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 		pow /= 10;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 
@@ -384,14 +384,14 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 		pow /= 10;
 		count++;
 	}
-	return (count);	
+	return (count);
 }
 
 int		ft_printf_putchar(t_data *data, va_list ap)
 {
 	int		count;
 	char	c;
-	
+
 	count = 0;
 	while (count < data->mwidth - 1)
 	{

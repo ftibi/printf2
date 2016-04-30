@@ -14,14 +14,14 @@
 
 static t_fct	*new_fct(void *fct, char conv)
 {
-	t_fct	*new;
+	t_fct	*new_fct;
 
-	if(!(new = (t_fct*)ft_memalloc(sizeof(t_fct))))
+	if(!(new_fct = (t_fct*)ft_memalloc(sizeof(t_fct))))
 		return (0);
-	new->fct = fct;
-	new->conv = conv;
-	new->next = NULL;
-	return (new);
+	new_fct->fct = fct;
+	new_fct->conv = conv;
+	new_fct->next = NULL;
+	return (new_fct);
 }
 
 static t_fct		*add_fct(t_fct *start, void *fct, char conv)

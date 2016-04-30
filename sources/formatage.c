@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-t_lst		*format(t_lst *lst, t_data *data)
+t_lst		*format(t_lst *lst, t_data *data) //relire la doc pour voir si jai oublie qqch
 {
 	lst = hashfmt(lst, data);
 	lst = mwidthfmt(lst, data);
@@ -39,9 +39,15 @@ t_lst		*hashfmt(t_lst *lst, t_data *data)
 
 t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 {
-    while (lst_len(lst) < data->mwitdh)
+    char    c;
+
+    if (data->zero && !data->minus)
+        c = '0';
+    else
+        c = ' ';
+    while (lst_len(lst) < data->mwidth)
     {
-        lst = pushfront_lst(lst);
+        lst = pushfront_lst(lst, c);
     }
     return (lst);
 }

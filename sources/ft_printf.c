@@ -25,7 +25,7 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	{
 		//	ft_putchar(' ');
 		//	format++;
-		return (format);	
+		return (format);
 	}
 //	if (*format == ' ')
 //		format++;

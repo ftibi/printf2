@@ -69,7 +69,7 @@ int		print_mask(char *mask, int oct)
 	int	i;
 	int j;
 	char c[4];
-	
+
 	i = 0;
 	while (i < oct)
 	{
