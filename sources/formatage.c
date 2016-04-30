@@ -20,8 +20,22 @@ t_lst		*format(t_lst *lst, t_data *data)
 	return (lst);
 }
 
-t_lst		*hashfmt(t_lst *lst, t_data *data);
+t_lst		*hashfmt(t_lst *lst, t_data *data)
+{
+    if (*(data->fmt) == 'o')//le premier char doit etre 0
+        ;
+    if (*(data->fmt) == 'x')
+    {
+        lst = pushback_lst(lst, '0');
+        lst = pushback_lst(lst, 'x');
+    }
+    if (*(data->fmt) == 'X')
+    {
+        lst = pushback_lst(lst, '0');
+        lst = pushback_lst(lst, 'X');
+    }
+    return (lst);
+}
+
 t_lst		*mwidthfmt(t_lst *lst, t_data *data);
 t_lst		*plusfmt(t_lst *lst, t_data *data);
-
-
