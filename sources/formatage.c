@@ -52,4 +52,8 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
     return (lst);
 }
 
-t_lst		*plusfmt(t_lst *lst, t_data *data);
+t_lst		*plusfmt(t_lst *lst, t_data *data)
+{
+	data++;
+	return (lst);
+}

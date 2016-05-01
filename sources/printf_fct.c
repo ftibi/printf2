@@ -236,7 +236,7 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 	int		count;
 	char	*str;
 
-	data->mwidth = 1; //a retirer, c juste pour utiliser data
+	//data->mwidth = 1; //a retirer, c juste pour utiliser data
 	str = va_arg(ap, char*);
 	if (!str)
 	{
