@@ -235,16 +235,15 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 {
 	int		count;
 	char	*str;
+	t_lst *lst;
 
-	//data->mwidth = 1; //a retirer, c juste pour utiliser data
 	str = va_arg(ap, char*);
 	if (!str)
 	{
 		ft_putstr("(null)");
 		return (6);
 	}
-	count = 0;
-	t_lst *lst = 0;
+	lst = 0;
 	while (*str)
 	{
 		lst = pushback_lst(lst, *str);
@@ -254,12 +253,6 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 	count = lst_len(lst);
 	print_lst(lst);
 	free_lst(lst);
-	return (count);
-	// {
-	// 	ft_putchar(*str);
-	// 	str++;
-	// 	count++;
-	// }
 	return (count);
 }
 
@@ -366,20 +359,16 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 	unsigned int	res;
 	int				count;
 	int				nb;
+	t_lst			*lst;
 
+	lst = 0;
 	nb = va_arg(ap, int);
-	data->mwidth = 1; //a retirer, c juste pour utiliser data
-	count = 0;
 	if (nb == 0)
-	{
-		ft_putchar('0');
-		return (1);
-	}
+		lst = pushback_lst(lst, '0');
 	if (nb < 0)
 	{
 		res = -nb;
-		ft_putchar('-');
-		count++;
+		lst = pushback_lst(lst, '-');
 	}
 	else
 		res = nb;
@@ -389,11 +378,14 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 	pow /= 10;
 	while (pow)
 	{
-		ft_putchar('0' + res / pow);
+		pushback_lst(lst, '0' + res / pow);
 		res = res - (res / pow) * pow;
 		pow /= 10;
-		count++;
 	}
+	lst = format_lst(lst, data);
+	print_lst(lst);
+	count = lst_len(lst);
+	free(lst);
 	return (count);
 }
 
