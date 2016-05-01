@@ -15,20 +15,22 @@
 #include <limits.h>
 
 int		main(int ac, char **av)
-{
-	int	res;
-//	int ptr = 400;
-	int a;
-	int b;
+ {
+// 	int	res;
+// //	int ptr = 400;
+// 	int a;
+// 	int b;
+ac++;
+av++;
+ 	int i = 0L;
+// 	char *rev;
+//
+ 	int z = 0;
+//
+	printf("built in %D\n", i);
+	ft_printf("ft %D\n", i);
 
-	char str[] = "salut comment ca va";
-	char *rev;
-	
-	int z = 42;
-
-	printf("%d\n", z);
-	ft_printf("%d\n", z);
-	//ft_printf("char : %C \n", i); 
+	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
 //	ft_putendl(str);
 //	rev  = ft_strrev(str);
@@ -53,24 +55,24 @@ int		main(int ac, char **av)
 //	ft_printf("ft 42 en hexa : %x\n", 42);
 //	printf("stdio UINTMAX en hexa : %x\n", UINT_MAX);
 //	ft_printf("ft UINTMAX en hexa : %x\n", UINT_MAX);
-//	
+//
 //	//printf("% Zoooo\n");
 //	//ft_printf("% Zoooo\n");
-//	
+//
 //	int *ptr;
 //	ptr = NULL;
 //	a = printf("io addresse dun pointeur : %p\n", ptr);
 //	b = ft_printf("ft addresse dun pointeur : %p\n", ptr);
 //	printf(" a = %d, b = %d \n", a, b);
 //
-//	
+//
 //	a = printf("io %");
 //	ft_putchar('\n');
 	 //ft_printf("%lh+j0");
 //	ft_putchar('\n');
 //	printf(" a = %d, b = %d \n", a, b);
-	
-	
-	
+
+
+
 	return (0);
 }

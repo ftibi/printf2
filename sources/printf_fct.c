@@ -319,22 +319,20 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
 	unsigned long	res;
-	int				count;
 	long long				nb;
+	t_lst						*lst;
 
+	lst = 0;
 	nb = va_arg(ap, long);
-	data->mwidth = 1; //a retirer, c juste pour utiliser data
-	count = 0;
 	if (nb == 0)
 	{
-		ft_putchar('0');
-		return (1);
+		lst = pushback_lst(lst, '0');
+		return (lst_finish(lst, data));
 	}
 	if (nb < 0)
 	{
 		res = -nb;
-		ft_putchar('-');
-		count++;
+		lst = pushback_lst(lst, '-');
 	}
 	else
 		res = nb;
@@ -344,12 +342,11 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 	pow /= 10;
 	while (pow)
 	{
-		ft_putchar('0' + res / pow);
+		lst = pushback_lst(lst, '0' + res / pow);
 		res = res - (res / pow) * pow;
 		pow /= 10;
-		count++;
 	}
-	return (count);
+	return (lst_finish(lst, data));
 }
 
 
@@ -363,7 +360,10 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, int);
 	if (nb == 0)
-		lst = pushback_lst(lst, '0');
+	{
+			lst = pushback_lst(lst, '0');
+			return (lst_finish(lst, data));
+	}
 	if (nb < 0)
 	{
 		res = -nb;

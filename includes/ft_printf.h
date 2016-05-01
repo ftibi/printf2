@@ -28,7 +28,6 @@ typedef struct		s_fct
 
 }					t_fct;
 //t_fct				*add_fct(t_fct *start, void *fct, char conv);
-t_fct				*fct_init(void);
 void				ft_error(char *errormsg);
 
 typedef struct	s_data
@@ -49,7 +48,8 @@ typedef struct	s_data
 	char		*fmt;
 }				t_data;
 
-void				*get_fct(t_fct *start, char conv, t_data *data);
+t_fct		*fct_init(void);
+void		*get_fct(t_fct *start, char conv, t_data *data);
 t_data	*parse_flags(char **fmt);
 t_data	*new_data(void);
 

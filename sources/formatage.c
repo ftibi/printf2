@@ -33,17 +33,18 @@ t_lst		*format_lst(t_lst *lst, t_data *data) //relire la doc pour voir si jai ou
 
 t_lst		*hashfmt(t_lst *lst, t_data *data)
 {
-    if (*(data->fmt) == 'o')//le premier char doit etre 0
-        ;
+	//ft_putendl("hashfmt");
+    if (*(data->fmt) == 'o' && lst->c != '0')//le premier char doit etre 0
+        lst = pushfront_lst(lst, '0');
     if (*(data->fmt) == 'x')
     {
-        lst = pushback_lst(lst, '0');
-        lst = pushback_lst(lst, 'x');
+        lst = pushfront_lst(lst, '0');
+        lst = pushfront_lst(lst, 'x');
     }
     if (*(data->fmt) == 'X')
     {
-        lst = pushback_lst(lst, '0');
-        lst = pushback_lst(lst, 'X');
+        lst = pushfront_lst(lst, '0');
+        lst = pushfront_lst(lst, 'X');
     }
     return (lst);
 }
@@ -52,13 +53,19 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 {
     char    c;
 
-    if (data->zero && !data->minus)
+    if (data->zero && !data->minus &&
+			ft_strchr(ft_strdup("idDuUpxXoO"),*(data->fmt)))
         c = '0';
     else
         c = ' ';
-		while (lst_len(lst) < data->mwidth)
-        lst = pushfront_lst(lst, c);
-    return (lst);
+			while (lst_len(lst) < data->mwidth)
+      {
+				if (!(data->minus))
+					lst = pushfront_lst(lst, c);
+	      else
+					lst = pushback_lst(lst, c);
+			}
+		return (lst);
 }
 
 t_lst		*plusfmt(t_lst *lst, t_data *data)
