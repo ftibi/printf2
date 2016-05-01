@@ -244,12 +244,22 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 		return (6);
 	}
 	count = 0;
+	t_lst *lst = 0;
 	while (*str)
 	{
-		ft_putchar(*str);
+		lst = pushback_lst(lst, *str);
 		str++;
-		count++;
 	}
+	lst = format_lst(lst, data);
+	count = lst_len(lst);
+	print_lst(lst);
+	free_lst(lst);
+	return (count);
+	// {
+	// 	ft_putchar(*str);
+	// 	str++;
+	// 	count++;
+	// }
 	return (count);
 }
 

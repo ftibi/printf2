@@ -42,6 +42,8 @@ t_lst				*pushback_lst(t_lst *lst, char c)
 {
 	t_lst	*tmp;
 
+	if (!lst)
+		return (new_lst(c));
 	tmp = lst;
 	while (tmp->next)
 		tmp = tmp->next;
