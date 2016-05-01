@@ -2,7 +2,8 @@
   "execPath": "gcc",
   "gccDefaultCFlags": "-c -Wall -Wextra -Werror -fsyntax-only",
   "gccDefaultCppFlags": "-Wall -std=c++11",
-  "gccErrorLimit": 15,
+  "_comment" : "gccErrorLimit: 15",
   "gccIncludePaths": ".,./includes/ft_printf.h,./libft/includes/libft.h",
-  "gccSuppressWarnings": true
+  "gccSuppressWarnings": false,
+  "gccLintOnTheFly": true
 }
