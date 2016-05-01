@@ -56,10 +56,8 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
         c = '0';
     else
         c = ' ';
-    while (lst_len(lst) < data->mwidth)
-    {
+		while (lst_len(lst) < data->mwidth)
         lst = pushfront_lst(lst, c);
-    }
     return (lst);
 }
 

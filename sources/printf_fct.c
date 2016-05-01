@@ -386,16 +386,11 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 
 int		ft_printf_putchar(t_data *data, va_list ap)
 {
-	int		count;
+	t_lst	*lst;
 	char	c;
 
-	count = 0;
-	while (count < data->mwidth - 1)
-	{
-		ft_putchar(' ');
-		count++;
-	}
-	c = (char)va_arg(ap, int);
-	ft_putchar(c);
-	return (count + 1);
+	lst = 0;
+	c = va_arg(ap, int);
+	lst = pushback_lst(lst, c);
+	return (lst_finish(lst, data));
 }
