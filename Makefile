@@ -3,7 +3,7 @@ NAME = libftprintf.a
 SRC_PATH = ./sources
 
 SRC_NAME = ft_printf.c printf_fct.c data.c parse_flags.c list_fct.c\
- 						mask.c lst_print.c formatage.c
+ 						mask.c lst_print.c formatage.c long_char.c oct_hex.c
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 

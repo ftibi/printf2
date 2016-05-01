@@ -33,7 +33,9 @@ t_lst		*format_lst(t_lst *lst, t_data *data) //relire la doc pour voir si jai ou
 
 t_lst		*hashfmt(t_lst *lst, t_data *data)
 {
-	//ft_putendl("hashfmt");
+	//ft_putendl("hashfmt")
+	if (data->hash)
+	{
     if (*(data->fmt) == 'o' && lst->c != '0')//le premier char doit etre 0
         lst = pushfront_lst(lst, '0');
     if (*(data->fmt) == 'x')
@@ -46,6 +48,7 @@ t_lst		*hashfmt(t_lst *lst, t_data *data)
         lst = pushfront_lst(lst, '0');
         lst = pushfront_lst(lst, 'X');
     }
+	}
     return (lst);
 }
 
