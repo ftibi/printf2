@@ -29,7 +29,7 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	}
 //	if (*format == ' ')
 //		format++;
-	fct = (ft_function)get_fct(fct_lst, *format);
+	fct = (ft_function)get_fct(fct_lst, *format, data);
 	if (!fct)
 	{
 	//	ft_putendl("no function");
@@ -70,10 +70,6 @@ int		ft_printf(const char *format2, ...)
 		if (*format == '%')
 		{
 			data = parse_flags(&format);
-	//		ft_putchar(*format);
-	//		ft_putchar('\n');
-	//		data->fmt = (char*)format; //je peux faire ca dans parse flags
-	//		ft_putendl(data->fmt);
 			format = fmt_read(data, ap, &count, fct_lst);
 		}
 		//print_flags(data);

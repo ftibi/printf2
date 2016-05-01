@@ -37,10 +37,11 @@ static t_fct		*add_fct(t_fct *start, void *fct, char conv)
 	return (start);
 }
 
-void	*get_fct(t_fct *start, char conv)
+void	*get_fct(t_fct *start, char conv, t_data *data)
 {
 	if (DEBUG)
 		ft_putendl("get fct");
+		data++;
 	while (start)
 	{
 		if (start->conv == conv)
