@@ -89,7 +89,7 @@ t_lst				*format_lst(t_lst *lst, t_data *data);
 t_lst				*hashfmt(t_lst *lst, t_data *data);
 t_lst				*mwidthfmt(t_lst *lst, t_data *data);
 t_lst				*plusfmt(t_lst *lst, t_data *data);
-
+int					lst_finish(t_lst *lst, t_data *data);
 
 
 #endif

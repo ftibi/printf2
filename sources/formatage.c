@@ -12,6 +12,17 @@
 
 #include "../includes/ft_printf.h"
 
+int			lst_finish(t_lst *lst, t_data *data)
+{
+	int	count;
+
+	lst = format_lst(lst, data);
+	print_lst(lst);
+	count = lst_len(lst);
+	free_lst(lst);
+	return (count);
+}
+
 t_lst		*format_lst(t_lst *lst, t_data *data) //relire la doc pour voir si jai oublie qqch
 {
 	lst = hashfmt(lst, data);

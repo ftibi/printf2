@@ -357,7 +357,6 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
 	unsigned int	res;
-	int				count;
 	int				nb;
 	t_lst			*lst;
 
@@ -382,11 +381,7 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 		res = res - (res / pow) * pow;
 		pow /= 10;
 	}
-	lst = format_lst(lst, data);
-	print_lst(lst);
-	count = lst_len(lst);
-	free(lst);
-	return (count);
+	return (lst_finish(lst, data));
 }
 
 int		ft_printf_putchar(t_data *data, va_list ap)
