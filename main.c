@@ -24,11 +24,10 @@ int		main(int ac, char **av)
 	char str[] = "salut comment ca va";
 	char *rev;
 	
-	int i = 119070;
-	unsigned long z = ULONG_MAX;
+	int z = 42;
 
-	printf("%lu\n", z);
-	ft_printf("%U\n", z);
+	printf("%d\n", z);
+	ft_printf("%d\n", z);
 	//ft_printf("char : %C \n", i); 
 //	printf("{%S}", NULL);
 //	ft_putendl(str);

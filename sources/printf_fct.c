@@ -378,7 +378,7 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 	pow /= 10;
 	while (pow)
 	{
-		pushback_lst(lst, '0' + res / pow);
+		lst = pushback_lst(lst, '0' + res / pow);
 		res = res - (res / pow) * pow;
 		pow /= 10;
 	}
