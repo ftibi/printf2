@@ -29,8 +29,8 @@ av++;
     int a;
     int b;
 //
-	a =    printf("built in %hhx\n", UCHAR_MAX + 42);
-	b = ft_printf("ft       %hhx\n", UCHAR_MAX + 42);
+	a =    printf("built in %#x\n", 0);
+	b = ft_printf("ft       %#x\n", 0);
 
     printf("built in : %d, ft : %d\n", a, b);
 

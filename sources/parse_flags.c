@@ -44,10 +44,11 @@ t_data	*parse_flags(char **fmt)
 		ft_putendl("parse flags 2");
 	if (ft_isdigit(*format))
 	{
-		nb = *format;
+		nb = *format - '0';
+		format++;
 		while (ft_isdigit(*format))
 		{
-			nb = 10 * nb + *format;
+			nb = 10 * nb + *format - '0';
 			format++;
 		}
 		data->mwidth = nb;

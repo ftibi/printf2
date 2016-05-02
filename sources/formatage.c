@@ -36,17 +36,17 @@ t_lst		*hashfmt(t_lst *lst, t_data *data)
 	//ft_putendl("hashfmt")
 	if (data->hash)
 	{
-    if (*(data->fmt) == 'o' && lst->c != '0')//le premier char doit etre 0
+    if ((*(data->fmt) == 'o' || *(data->fmt) == 'O') && lst->c != '0')//le premier char doit etre 0
         lst = pushfront_lst(lst, '0');
-    if (*(data->fmt) == 'x')
+    if (*(data->fmt) == 'x' && lst->c != '0')
     {
-        lst = pushfront_lst(lst, '0');
         lst = pushfront_lst(lst, 'x');
-    }
-    if (*(data->fmt) == 'X')
-    {
         lst = pushfront_lst(lst, '0');
+    }
+    if (*(data->fmt) == 'X' && lst->c != '0')
+    {
         lst = pushfront_lst(lst, 'X');
+        lst = pushfront_lst(lst, '0');
     }
 	}
     return (lst);
@@ -55,19 +55,30 @@ t_lst		*hashfmt(t_lst *lst, t_data *data)
 t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 {
     char    c;
+		t_lst		*tmp;
 
-    if (data->zero && !data->minus &&
-			ft_strchr(ft_strdup("idDuUpxXoO"),*(data->fmt)))
+    if (data->zero && !data->minus )//&&
         c = '0';
     else
         c = ' ';
-			while (lst_len(lst) < data->mwidth)
-      {
-				if (!(data->minus))
+//		printf("mwidth %d\n", data->mwidth);
+//		printf("precision %d\n", data->precision);
+		while (lst_len(lst) < data->mwidth)
+    {
+			if (data->minus)
+				lst = pushback_lst(lst, c);
+	    else
+			{
+				if (lst->c == '-' && c == '0')
+				{
+						tmp = lst->next;
+						lst->next = new_lst(c);
+						lst->next->next = tmp;
+				}
+				else
 					lst = pushfront_lst(lst, c);
-	      else
-					lst = pushback_lst(lst, c);
 			}
+		}
 		return (lst);
 }
 
