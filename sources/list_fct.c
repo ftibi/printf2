@@ -62,11 +62,14 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'H';
 	if (data->ll && conv == 'o' )
 		conv = 'P';
-	if (data->hh && conv == 'd')
-	{
-//		ft_putendl("ici");
-		conv = 'i';
-	}
+	if (data->hh && (conv == 'd' || conv == 'i'))
+		conv = 'h';
+	if (data->hh && conv == 'u')
+		conv = 'a';
+	if (data->hh && conv == 'o')
+		conv = 'z';
+
+
 	while (start)
 	{
 		if (start->conv == conv)
@@ -90,6 +93,7 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putnbr, 'd');
 	list = add_fct(list, ft_printf_putlnbr, 'D');
 	list = add_fct(list, ft_printf_putllnbr, 'F');
+	list = add_fct(list, ft_printf_putuhhnbr, 'a');
 	list = add_fct(list, ft_printf_putunbr, 'u');
 	list = add_fct(list, ft_printf_putlunbr, 'U');
 	list = add_fct(list, ft_printf_putllunbr, 'I');
@@ -98,6 +102,7 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putlhexa, 'H');
 	list = add_fct(list, ft_printf_putllhexa, 'J');
 	list = add_fct(list, ft_printf_putptr, 'p');
+	list = add_fct(list, ft_printf_puthhoct, 'z');
 	list = add_fct(list, ft_printf_putoct, 'o');
 	list = add_fct(list, ft_printf_putloct, 'O');
 	list = add_fct(list, ft_printf_putlloct, 'P');

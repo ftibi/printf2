@@ -15,7 +15,8 @@
 # include "../libft/includes/libft.h"
 # include <stdarg.h>
 # define DEBUG 0
-
+// a enlever
+#include <stdio.h>
 typedef int(*ft_function)(void*, void*);
 
 int		ft_printf(const char *format, ...);
@@ -57,6 +58,7 @@ void	print_flags(t_data *data);
 
 int		ft_printf_putstr(t_data *data, va_list ap);
 int		ft_printf_putlstr(t_data *data, va_list ap);
+int		ft_printf_putuhhnbr(t_data *data, va_list ap);
 int		ft_printf_puthhnbr(t_data *data, va_list ap);
 int		ft_printf_putnbr(t_data *data, va_list ap);
 int		ft_printf_putunbr(t_data *data, va_list ap);
@@ -64,11 +66,13 @@ int		ft_printf_putlunbr(t_data *data, va_list ap);
 int		ft_printf_putllunbr(t_data *data, va_list ap);
 int		ft_printf_putlnbr(t_data *data, va_list ap);
 int		ft_printf_putllnbr(t_data *data, va_list ap);
+int		ft_printf_puthhhexa(t_data *data, va_list ap);
 int		ft_printf_puthexa(t_data *data, va_list ap);
 int		ft_printf_putlhexa(t_data *data, va_list ap);
 int		ft_printf_putllhexa(t_data *data, va_list ap);
 int		ft_printf_putptr(t_data *data, va_list ap);
 int		ft_printf_putchar(t_data *data, va_list ap);
+int		ft_printf_puthhoct(t_data *data, va_list ap);
 int		ft_printf_putoct(t_data *data, va_list ap);
 int		ft_printf_putloct(t_data *data, va_list ap);
 int		ft_printf_putlloct(t_data *data, va_list ap);
