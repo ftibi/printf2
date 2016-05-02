@@ -22,13 +22,13 @@ int		main(int ac, char **av)
 // 	int b;
 ac++;
 av++;
- 	int i = 0L;
+ 	unsigned long i = ULONG_MAX;
 // 	char *rev;
 //
  	int z = 0;
 //
-	printf("built in %D\n", i);
-	ft_printf("ft %D\n", i);
+	printf("built in %lx\n", i);
+	ft_printf("ft %lx\n", i);
 
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);

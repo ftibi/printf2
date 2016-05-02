@@ -62,6 +62,7 @@ int		ft_printf_putunbr(t_data *data, va_list ap);
 int		ft_printf_putlunbr(t_data *data, va_list ap);
 int		ft_printf_putlnbr(t_data *data, va_list ap);
 int		ft_printf_puthexa(t_data *data, va_list ap);
+int		ft_printf_putlhexa(t_data *data, va_list ap);
 int		ft_printf_putptr(t_data *data, va_list ap);
 int		ft_printf_putchar(t_data *data, va_list ap);
 int		ft_printf_putoct(t_data *data, va_list ap);
