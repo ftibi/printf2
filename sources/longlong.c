@@ -3,10 +3,10 @@
 int		ft_printf_putlloct(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned long	res;
+	unsigned long	long res;
 	t_lst							*lst;
 
-	res = va_arg(ap, unsigned long);
+	res = va_arg(ap, unsigned long long);
 	lst = 0;
 	if (res == 0)
 	{
@@ -58,12 +58,12 @@ int		ft_printf_putllhexa(t_data *data, va_list ap)
 int		ft_printf_putllunbr(t_data *data, va_list ap)
 {
 	unsigned  long long	pow;
-	unsigned  long	res;
-	unsigned  long	nb;
+	unsigned  long	long res;
+	unsigned  long	long nb;
 	t_lst						*lst;
 
 	lst = 0;
-	nb = va_arg(ap, unsigned long);
+	nb = va_arg(ap, unsigned long long);
 	if (nb == 0)
 	{
 		lst = pushback_lst(lst, '0');
@@ -85,12 +85,12 @@ int		ft_printf_putllunbr(t_data *data, va_list ap)
 int		ft_printf_putllnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned long	res;
+	unsigned long	long res;
 	long long				nb;
 	t_lst						*lst;
 
 	lst = 0;
-	nb = va_arg(ap, long);
+	nb = va_arg(ap, long long);
 	if (nb == 0)
 	{
 		lst = pushback_lst(lst, '0');

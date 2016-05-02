@@ -54,6 +54,14 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'U';
 	if (data->l && (conv == 'x' || conv == 'X'))
 		conv = 'H';
+	if (data->ll && conv == 'u' )
+		conv = 'I';
+	if (data->ll && (conv == 'd' || conv == 'i'))
+		conv = 'F';
+	if (data->ll && (conv == 'x' || conv == 'X'))
+		conv = 'H';
+	if (data->ll && conv == 'o' )
+		conv = 'P';
 	while (start)
 	{
 		if (start->conv == conv)
@@ -75,14 +83,18 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putnbr, 'i');
 	list = add_fct(list, ft_printf_putnbr, 'd');
 	list = add_fct(list, ft_printf_putlnbr, 'D');
+	list = add_fct(list, ft_printf_putllnbr, 'F');
 	list = add_fct(list, ft_printf_putunbr, 'u');
 	list = add_fct(list, ft_printf_putlunbr, 'U');
+	list = add_fct(list, ft_printf_putllunbr, 'I');
 	list = add_fct(list, ft_printf_puthexa, 'x');
 	list = add_fct(list, ft_printf_puthexa, 'X');
 	list = add_fct(list, ft_printf_putlhexa, 'H');
+	list = add_fct(list, ft_printf_putllhexa, 'J');
 	list = add_fct(list, ft_printf_putptr, 'p');
 	list = add_fct(list, ft_printf_putoct, 'o');
 	list = add_fct(list, ft_printf_putloct, 'O');
+	list = add_fct(list, ft_printf_putlloct, 'P');
 	list = add_fct(list, ft_printf_putlchar, 'C');
 	list = add_fct(list, ft_printf_putlstr, 'S');
 	return (list);

@@ -25,10 +25,10 @@ av++;
  	unsigned long i = ULONG_MAX;
 // 	char *rev;
 //
- 	int z = 0;
+ 	long long z = LLONG_MIN;
 //
-	printf("built in %lx\n", i);
-	ft_printf("ft %lx\n", i);
+	printf("built in %lld\n", z);
+	ft_printf("ft %lld\n", z);
 
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
