@@ -68,7 +68,8 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'a';
 	if (data->hh && conv == 'o')
 		conv = 'z';
-
+	if (data->hh && (conv == 'x' || conv == 'X'))
+		conv = 'v';
 
 	while (start)
 	{
@@ -97,6 +98,7 @@ t_fct		*fct_init()
 	list = add_fct(list, ft_printf_putunbr, 'u');
 	list = add_fct(list, ft_printf_putlunbr, 'U');
 	list = add_fct(list, ft_printf_putllunbr, 'I');
+	list = add_fct(list, ft_printf_puthhhexa, 'v');
 	list = add_fct(list, ft_printf_puthexa, 'x');
 	list = add_fct(list, ft_printf_puthexa, 'X');
 	list = add_fct(list, ft_printf_putlhexa, 'H');
