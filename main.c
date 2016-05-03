@@ -29,8 +29,8 @@ av++;
     int a;
     int b;
 //
-	a =    printf("built in %jd\n", 42);
-	b = ft_printf("ft       %#x\n", 0);
+	a =    printf("built in % 03d \n", 1);
+	b = ft_printf("ft       % 03d \n", 1);
 
     printf("built in : %d, ft : %d\n", a, b);
 

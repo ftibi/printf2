@@ -26,8 +26,10 @@ int			lst_finish(t_lst *lst, t_data *data)
 t_lst		*format_lst(t_lst *lst, t_data *data) //relire la doc pour voir si jai oublie qqch
 {
 	lst = hashfmt(lst, data);
-	lst = mwidthfmt(lst, data);
 	lst = plusfmt(lst, data);
+	lst = precisionfmt(lst, data);
+	lst = mwidthfmt(lst, data);
+	lst = spacefmt(lst, data);
 	return (lst);
 }
 
@@ -57,19 +59,19 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
     char    c;
 		t_lst		*tmp;
 
-    if (data->zero && !data->minus )//&&
+    if (data->zero && !data->minus)//&&
         c = '0';
     else
         c = ' ';
-//		printf("mwidth %d\n", data->mwidth);
-//		printf("precision %d\n", data->precision);
+		if (data->space && ft_strchr("idD",*(data->fmt)))
+			data->mwidth--;
 		while (lst_len(lst) < data->mwidth)
     {
 			if (data->minus)
 				lst = pushback_lst(lst, c);
 	    else
 			{
-				if (lst->c == '-' && c == '0')
+				if ((lst->c == '-' || lst-> c == '+') && c == '0')
 				{
 						tmp = lst->next;
 						lst->next = new_lst(c);
@@ -82,8 +84,42 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 		return (lst);
 }
 
+t_lst		*precisionfmt(t_lst *lst, t_data *data)
+{
+	if (data->precision > 0 && ft_strchr("idDxXoOuU", *(data->fmt)))
+	{
+		while (lst_len(lst) < data->precision)
+		{
+			lst = pushfront_lst(lst, '0');
+		}
+	}
+	return (lst);
+}
+
 t_lst		*plusfmt(t_lst *lst, t_data *data)
 {
-	data++;
+	if (data->plus && ft_strchr("idD",*(data->fmt)))
+	{
+		if (lst->c != '-')// && lst->c != '0')
+				lst = pushfront_lst(lst, '+');
+	}
 	return (lst);
+}
+
+t_lst		*spacefmt(t_lst *lst, t_data *data)
+{
+	t_lst	*start;
+
+	if (!data->space || data->plus)
+		return (lst);
+	start = lst;
+	if (ft_strchr("idD",*(data->fmt)))
+	{
+		if (ft_isdigit(lst->c))
+		{
+			lst = pushfront_lst(lst, ' ');
+			return (lst);
+		}
+	}
+	return (start);
 }

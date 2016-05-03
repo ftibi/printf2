@@ -61,7 +61,7 @@ t_data	*parse_flags(char **fmt)
 		nb = 0;
 		while (ft_isdigit(*format))
 		{
-			nb = 10 * nb + *format;
+			nb = 10 * nb + *format - '0';
 			format++;
 		}
 		data->precision = nb;
@@ -99,19 +99,5 @@ t_data	*parse_flags(char **fmt)
 	if (DEBUG)
 		ft_putendl("end parse flags");
 	data->fmt = format;
-//	ft_putendl(data->fmt);
-	//ici modif data pour pouvoir passer lc en C par exemple
-	data = data_mod(data);
-	//fmt = &format;
-	return (data);
-}
-
-t_data	*data_mod(t_data *data)
-{
-	if (*(data->fmt) == 'c' && data->l)
-	{
-		*(data->fmt) = 'C';
-		data->l = 0;
-	}
 	return (data);
 }
