@@ -29,7 +29,7 @@ av++;
     int a;
     int b;
 //
-	a =    printf("built in %#x\n", 0);
+	a =    printf("built in %jd\n", 42);
 	b = ft_printf("ft       %#x\n", 0);
 
     printf("built in : %d, ft : %d\n", a, b);

@@ -54,13 +54,13 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'U';
 	if (data->l && (conv == 'x' || conv == 'X'))
 		conv = 'H';
-	if (data->ll && conv == 'u' )
+	if ((data->ll || data->j) && conv == 'u' )
 		conv = 'I';
-	if (data->ll && (conv == 'd' || conv == 'i'))
+	if ((data->ll || data->j) && (conv == 'd' || conv == 'i'))
 		conv = 'F';
-	if (data->ll && (conv == 'x' || conv == 'X'))
+	if ((data->ll || data->j) && (conv == 'x' || conv == 'X'))
 		conv = 'H';
-	if (data->ll && conv == 'o' )
+	if ((data->ll || data->j) && conv == 'o' )
 		conv = 'P';
 	if (data->hh && (conv == 'd' || conv == 'i'))
 		conv = 'h';
