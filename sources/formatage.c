@@ -86,11 +86,35 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 
 t_lst		*precisionfmt(t_lst *lst, t_data *data)
 {
-	if (data->precision > 0 && ft_strchr("idDxXoOuU", *(data->fmt)))
+	t_lst *start;
+	int		count;
+
+	if (data->precision > 0)
 	{
-		while (lst_len(lst) < data->precision)
+		if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
 		{
-			lst = pushfront_lst(lst, '0');
+			while (lst_len(lst) < data->precision)
+			{
+				lst = pushfront_lst(lst, '0');
+			}
+		}
+		else if (ft_strchr(ft_strdup("s"), *(data->fmt)))
+		{
+			if (lst_len(lst) > data->precision)
+			{
+				//ici il faut cut la string et changer mwidth
+				data->mwidth = data->precision;
+				start = lst;
+				count = data->precision;
+				while (count > 1)
+				{
+					lst = lst->next;
+					count--;
+				}
+				lst->next = 0;
+				free_lst(lst->next);
+				return (start);
+			}
 		}
 	}
 	return (lst);

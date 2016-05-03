@@ -29,8 +29,8 @@ av++;
     int a;
     int b;
 //
-	a =    printf("built in % 03d \n", 1);
-	b = ft_printf("ft       % 03d \n", 1);
+	a =    printf("built in %.5s \n", "salut comment ca va");
+	b = ft_printf("ft       %.5s \n", "salut comment ca va");
 
     printf("built in : %d, ft : %d\n", a, b);
 
