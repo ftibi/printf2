@@ -91,6 +91,11 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 	t_lst *start;
 	int		count;
 
+	if (data->precision == 0 && ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt))) //&& !data->l && !data->ll && !data->h && !data->hh && !data->j && !data->z)
+	{
+		if (lst_sum_digit(lst) == 0)
+			lst = del_all_digits(lst);
+	}
 	if (data->precision > 0)
 	{
 		if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))

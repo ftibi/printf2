@@ -90,6 +90,38 @@ int					lst_sum_digit(t_lst *lst)
 	return (count);
 }
 
+t_lst				*del_all_digits(t_lst *lst)
+{
+	t_lst		*start;
+	t_lst		*prev;
+	t_lst		*tmp;
+
+	while (lst && ft_isdigit(lst->c))
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+	}
+	start = lst;
+	prev = lst;
+	while (lst)
+	{
+		if (ft_isdigit(lst->c))
+		{
+			prev->next = lst->next;
+			tmp = lst->next;
+			free(lst);
+			lst = tmp;
+		}
+		else
+		{
+			prev = lst;
+			lst = lst->next;
+		}
+	}
+	return (start);
+}
+
 void				print_lst(t_lst *lst)
 {
 	while (lst)

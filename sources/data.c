@@ -32,7 +32,7 @@ t_data		*new_data()
 	new->j = 0;
 	new->z = 0;
 	new->mwidth = 0;
-	new->precision = 0;
+	new->precision = -1;
 	new->fmt = 0;
 	if (DEBUG)
 		ft_putendl("end new data");
