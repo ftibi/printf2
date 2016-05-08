@@ -67,6 +67,8 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 			data->mwidth--;
 		while (lst_len(lst) < data->mwidth)
     {
+			if (data->precision > 0 && lst_digit(lst) >= data->precision && ft_strchr("idDxXoOuU", *(data->fmt)))
+				c = ' ';
 			if (data->minus)
 				lst = pushback_lst(lst, c);
 	    else
@@ -93,9 +95,14 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 	{
 		if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
 		{
-			while (lst_len(lst) < data->precision)
+			while (lst_len(lst) < data->precision + (lst->c == '-'))
 			{
-				lst = pushfront_lst(lst, '0');
+				if (lst->c == '-')
+				{
+					lst->next = pushfront_lst(lst->next, '0');
+				}
+				else
+					lst = pushfront_lst(lst, '0');
 			}
 		}
 		else if (ft_strchr(ft_strdup("s"), *(data->fmt)))

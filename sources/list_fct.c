@@ -42,6 +42,8 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 	if (DEBUG)
 		ft_putendl("get fct");
 	// faire les equivalences de fctions
+	if (!ft_strchr("idDxXoOuUsScCpP", conv))
+		conv = 'Z';
 	if (data->l && (conv == 'd' || conv == 'i'))
 		conv = 'D';
 	if (data->l && (conv == 's'))
@@ -70,6 +72,7 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'k';
 	if (data->hh && (conv == 'x' || conv == 'X'))
 		conv = 'v';
+
 
 	while (start)
 	{

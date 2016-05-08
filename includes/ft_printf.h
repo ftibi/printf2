@@ -93,6 +93,8 @@ t_lst				*new_lst(char c);
 t_lst				*pushback_lst(t_lst *lst, char c);
 t_lst				*pushfront_lst(t_lst *lst, char c);
 int					lst_len(t_lst *lst);
+int					lst_digit(t_lst *lst);
+int					lst_sum_digit(t_lst *lst);
 void				print_lst(t_lst *lst);
 void				free_lst(t_lst *lst);
 t_lst				*format_lst(t_lst *lst, t_data *data);
