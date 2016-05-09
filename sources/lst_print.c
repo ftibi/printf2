@@ -90,6 +90,20 @@ int					lst_sum_digit(t_lst *lst)
 	return (count);
 }
 
+int					lst_sum_alnum(t_lst *lst)
+{
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		if (ft_isdigit(lst->c))
+			count += lst->c - '0';
+		lst = lst->next;
+	}
+	return (count);
+}
+
 t_lst				*del_all_digits(t_lst *lst)
 {
 	t_lst		*start;

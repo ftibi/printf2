@@ -95,6 +95,7 @@ t_lst				*pushfront_lst(t_lst *lst, char c);
 int					lst_len(t_lst *lst);
 int					lst_digit(t_lst *lst);
 int					lst_sum_digit(t_lst *lst);
+int					lst_sum_alnum(t_lst *lst);
 t_lst				*del_all_digits(t_lst *lst);
 void				print_lst(t_lst *lst);
 void				free_lst(t_lst *lst);
