@@ -29,8 +29,8 @@ av++;
     int a;
     int b;
 //
-	a =    printf("built in %.5p, %.p\n", 0, 0);
-	b = ft_printf("ft       %.5p, %.p\n", 0, 0);
+	a =    printf("built in %#.x, %.p\n", 0, 0);
+	b = ft_printf("ft       %#.x, %.p\n", 0, 0);
 
     printf("built in : %d, ft : %d\n", a, b);
 

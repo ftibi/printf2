@@ -40,12 +40,12 @@ t_lst		*hashfmt(t_lst *lst, t_data *data)
 	{
     if ((*(data->fmt) == 'o' || *(data->fmt) == 'O') && lst->c != '0')//&& data->precision != 0)//le premier char doit etre 0
         lst = pushfront_lst(lst, '0');
-    if (*(data->fmt) == 'x' && lst->c != '0')
+    if (*(data->fmt) == 'x' && lst->c != '0' && data->precision)  // data->precision inutile??
     {
         lst = pushfront_lst(lst, 'x');
         lst = pushfront_lst(lst, '0');
     }
-    if (*(data->fmt) == 'X' && lst->c != '0')
+    if (*(data->fmt) == 'X' && lst->c != '0' && data->precision) // data->precision inutile??
     {
         lst = pushfront_lst(lst, 'X');
         lst = pushfront_lst(lst, '0');
@@ -95,13 +95,14 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 	{
 		if (lst_sum_digit(lst) == 0)
 			lst = del_all_digits(lst)	;// ne pas delete tous les 0 si # ATTENTION A CORRIGER
-}
+	}
 
 	if (data->precision == 0 && ((ft_strchr(ft_strdup("xX"), *(data->fmt)) && data->hash) || (ft_strchr(ft_strdup("pP"), *(data->fmt))))) //&& !data->l && !data->ll && !data->h && !data->hh && !data->j && !data->z)
 		if (lst_sum_alnum(lst) == 0) //fonction a implementer pourles pointeurs
 		{
 			lst = del_all_digits(lst)	;
-			lst = pushfront_lst(lst, '0');
+			if (*(data->fmt) == 'p' || *(data->fmt) == 'P')
+				lst = pushfront_lst(lst, '0');
 		}
 			//ilf aut retirer la condition sur !datahash et laisser juste 1 zero si datahash
 		// if (*(data->fmt) == 'O')
@@ -140,7 +141,6 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 		}
 		if (*(data->fmt) == 'p' || (data->hash && ((*(data->fmt) == 'x' || *(data->fmt) == 'X'))))
 		{
-			// ft_putendl("ici");
 			while (data->precision > lst_len(lst) - 2)
 			{
 			//  ft_putendl("ici");
