@@ -78,9 +78,6 @@ int		ft_printf_putloct(t_data *data, va_list ap);
 int		ft_printf_putlloct(t_data *data, va_list ap);
 int		ft_printf_putlchar(t_data *data, va_list ap);
 
-char	*fill_mask(char *mask, int c);
-int		print_mask(char *mask, int oct, t_data *data);
-char	*ft_strrev(char *str);
 
 t_data	*data_mod(t_data *data);
 
@@ -89,6 +86,11 @@ typedef struct		s_lst //LC pour stocker les chaines a afficher
 	char			c;
 	struct s_lst	*next;
 }					t_lst;
+
+t_lst	*print_mask(char *mask, int oct, t_lst *lst);
+char	*fill_mask(char *mask, int c);
+char	*ft_strrev(char *str);
+
 t_lst				*new_lst(char c);
 t_lst				*pushback_lst(t_lst *lst, char c);
 t_lst				*pushfront_lst(t_lst *lst, char c);
