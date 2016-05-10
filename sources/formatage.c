@@ -59,7 +59,7 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
     char    c;
 		t_lst		*tmp;
 
-    if (data->zero && !data->minus)//&&
+    if (data->zero && !data->minus)
         c = '0';
     else
         c = ' ';
@@ -126,7 +126,7 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 			if (lst_len(lst) > data->precision)
 			{
 				//ici il faut cut la string et changer mwidth
-				data->mwidth = data->precision;
+				//data->mwidth = data->precision;
 				start = lst;
 				count = data->precision;
 				while (count > 1)

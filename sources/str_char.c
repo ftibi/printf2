@@ -6,13 +6,17 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 	t_lst *lst;
 
 	str = va_arg(ap, char*);
+	lst = 0;
 	if (!str)
 	{
-		ft_putstr("(null)");
-		return (6);
+		lst = pushback_lst(lst, '(');
+		lst = pushback_lst(lst, 'n');
+		lst = pushback_lst(lst, 'u');
+		lst = pushback_lst(lst, 'l');
+		lst = pushback_lst(lst, 'l');
+		lst = pushback_lst(lst, ')');
 	}
-	lst = 0;
-	while (*str)
+	while (str && *str)
 	{
 		lst = pushback_lst(lst, *str);
 		str++;

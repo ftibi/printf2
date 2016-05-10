@@ -17,6 +17,7 @@ t_data	*parse_flags(char **fmt)
 	t_data	*data;
 	char	*format;
 	int		nb;
+	int		i;
 
 	if (DEBUG)
 		ft_putendl("parse flags");
@@ -59,8 +60,10 @@ t_data	*parse_flags(char **fmt)
 	{
 		format++;
 		nb = 0;
+		i = 0;
 		while (ft_isdigit(*format))
 		{
+			i++;
 			nb = 10 * nb + *format - '0';
 			format++;
 		}
