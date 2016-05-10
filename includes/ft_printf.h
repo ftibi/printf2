@@ -73,6 +73,7 @@ int		ft_printf_putllhexa(t_data *data, va_list ap);
 int		ft_printf_putptr(t_data *data, va_list ap);
 int		ft_printf_putchar(t_data *data, va_list ap);
 int		ft_printf_puthhoct(t_data *data, va_list ap);
+int		ft_printf_puthoct(t_data *data, va_list ap);
 int		ft_printf_putoct(t_data *data, va_list ap);
 int		ft_printf_putloct(t_data *data, va_list ap);
 int		ft_printf_putlloct(t_data *data, va_list ap);

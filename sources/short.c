@@ -84,6 +84,31 @@ int		ft_printf_puthhoct(t_data *data, va_list ap)
 	return (lst_finish(lst, data));
 }
 
+int		ft_printf_puthoct(t_data *data, va_list ap)
+{
+	unsigned short	pow;
+	unsigned short	res;
+	t_lst					*lst;
+
+	lst = 0;
+	res = va_arg(ap, int);
+	if (res == 0)
+	{
+		lst = pushback_lst(lst, '0');
+		return (lst_finish(lst, data));
+	}
+	pow = 1;
+	while (pow <= res / 8)
+		pow *= 8;
+	while (pow)
+	{
+		lst = pushback_lst(lst, '0' + res / pow);
+		res = res - (res / pow) * pow;
+		pow /= 8;
+	}
+	return (lst_finish(lst, data));
+}
+
 
 int		ft_printf_puthhhexa(t_data *data, va_list ap)
 {
