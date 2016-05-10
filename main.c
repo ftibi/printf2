@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/27 15:57:56 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/10 15:17:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,21 @@ av++;
 // 	char *rev;
 //
  //	unsigned char z = UCHAR_MAX + 42;
-    int a;
-    int b;
+  int a;
+  int b;
 //
-	a =    printf("built in %#.x, %.p\n", 0, 0);
-	b = ft_printf("ft       %#.x, %.p\n", 0, 0);
+	// a =    printf("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S\n",
+	// L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+	// L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", L"");// L"米米");
+	// b = ft_printf("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S\n",
+	// L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+	// L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", L"");// L"米米");
+	//
+  // printf("built in : %d, ft : %d\n", a, b);
 
-    printf("built in : %d, ft : %d\n", a, b);
-
+	b = ft_printf("      ft : % S\n",L"" );
+	a = 	 printf("built in : % S\n",L"" );
+  printf("built in : %d, ft : %d\n", a, b);
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
 //	ft_putendl(str);
