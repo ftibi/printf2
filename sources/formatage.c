@@ -89,7 +89,7 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 t_lst		*precisionfmt(t_lst *lst, t_data *data)
 {
 	t_lst *start;
-	t_lst *prev;
+	 t_lst *tmp;
 	int		count;
 
 	start = lst;
@@ -108,72 +108,51 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 			lst = pushfront_lst(lst, '0');
 		}
 	}
-	if (data->precision == 0 && ft_strchr(ft_strdup("sS"), *(data->fmt)))
+	if (data->precision > 0 && ft_strchr(ft_strdup("S"), *(data->fmt)))
 	{
-		while (lst_len(lst) > data->precision)
+		lst = 0;
+	}
+	else if (data->precision >= 0 && ft_strchr(ft_strdup("sS"), *(data->fmt)))
+	{
+		if(!data->precision)
 		{
-			if (lst_len(lst) == 1)
+			free(lst);
+			return (0);
+		}
+		if (lst_len(lst) > data->precision)
+		{
+			start = lst;
+			count = data->precision;
+			while (count > 1)
 			{
-			//	free(lst);
-				return (0);
-			}
-			else
-			{
-			lst = start;
-			prev = lst;
-			while (lst && lst->next)
-			{
-				prev = lst;
 				lst = lst->next;
+				count--;
 			}
-			prev->next = 0;
-	//		if (lst)
-		//		free(lst);
-			}
+			tmp = lst->next;
+			lst->next = 0;
+			free_lst(tmp);
+			return (start);
 		}
 	}
-	//ilf aut retirer la condition sur !datahash et laisser juste 1 zero si datahash
-	// if (*(data->fmt) == 'O')
-		// 	lst = pushfront_lst(lst, '0');
-	if (data->precision > 0)
-	{
-		if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
+		if (data->precision > 0)
 		{
-			while (lst_len(lst) < data->precision + (lst->c == '-'))
+			if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
 			{
-				if (lst->c == '-')
+				while (lst_len(lst) < data->precision + (lst->c == '-'))
 				{
-					lst->next = pushfront_lst(lst->next, '0');
-				}
-				else
+					if (lst->c == '-')
+					{
+						lst->next = pushfront_lst(lst->next, '0');
+					}
+					else
 					lst = pushfront_lst(lst, '0');
-			}
-		}
-		else if (ft_strchr(ft_strdup("s"), *(data->fmt)))
-		{
-			if (lst_len(lst) > data->precision)
-			{
-				//ici il faut cut la string et changer mwidth
-				//data->mwidth = data->precision;
-				// ft_putnbr(data->mwidth); ft_putendl("");
-				// ft_putstr("prec"); ft_putnbr(data->precision); ft_putendl("");
-				start = lst;
-				count = data->precision;
-				while (count > 1)
-				{
-					lst = lst->next;
-					count--;
 				}
-				lst->next = 0;
-				free_lst(lst->next);
-				return (start);
 			}
-		}
 		if (*(data->fmt) == 'p' || (data->hash && ((*(data->fmt) == 'x' || *(data->fmt) == 'X'))))
 		{
 			while (data->precision > lst_len(lst) - 2)
 			{
-			//  ft_putendl("ici");
+				//  ft_putendl("ici");
 				lst->next->next = pushfront_lst(lst->next->next, '0');
 			}
 		}

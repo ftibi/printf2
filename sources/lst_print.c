@@ -12,10 +12,9 @@
 
 #include "../includes/ft_printf.h"
 
-void	ft_error(char *msg)
+void	ft_error(int nb)
 {
-	ft_putendl(msg);
-	exit(0);
+	exit(nb);
 }
 
 t_lst	*new_lst(char c)
@@ -23,7 +22,7 @@ t_lst	*new_lst(char c)
 	t_lst	*new;
 
 	if (!(new = (t_lst*)ft_memalloc(sizeof(t_lst))))
-		ft_error("malloc error");
+		ft_error(-1);
 	new->next = 0;
 	new->c = c;
 	return (new);

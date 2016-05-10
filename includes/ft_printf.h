@@ -29,7 +29,7 @@ typedef struct		s_fct
 
 }					t_fct;
 //t_fct				*add_fct(t_fct *start, void *fct, char conv);
-void				ft_error(char *errormsg);
+void				ft_error(int nb);
 
 typedef struct	s_data
 {
