@@ -29,11 +29,18 @@ av++;
   int a;
   int b;
 //
-	a =    printf("built in %hhS\n", 0);// L"米米");
-	b = ft_printf("ft       %S\n", 0);// L"米米");
+	// a =    printf("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S\n",
+	// L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+	// L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", L"");// L"米米");
+	// b = ft_printf("%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S%S\n",
+	// L"Α α", L"Β β", L"Γ γ", L"Δ δ", L"Ε ε", L"Ζ ζ", L"Η η", L"Θ θ", L"Ι ι", L"Κ κ", L"Λ λ", L"Μ μ",
+	// L"Ν ν", L"Ξ ξ", L"Ο ο", L"Π π", L"Ρ ρ", L"Σ σ", L"Τ τ", L"Υ υ", L"Φ φ", L"Χ χ", L"Ψ ψ", L"Ω ω", L"");// L"米米");
+	//
+  // printf("built in : %d, ft : %d\n", a, b);
 
+	b = ft_printf("      ft : % S\n",L"" );
+	a = 	 printf("built in : % S\n",L"" );
   printf("built in : %d, ft : %d\n", a, b);
-
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
 //	ft_putendl(str);

@@ -43,7 +43,7 @@ int		ft_printf_putlstr(t_data *data, va_list ap)
 
 	lst = 0;
 	str = va_arg(ap, int*);
-	if (!str || !(*str))
+	if (!str)// || !(*str))
 	{
 		// ft_putstr("(null)");
 		lst = pushback_lst(lst, '(');
