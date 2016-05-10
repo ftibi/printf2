@@ -6,7 +6,7 @@
 /*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 15:44:53 by tfolly            #+#    #+#             */
-/*   Updated: 2016/04/27 15:57:56 by tfolly           ###   ########.fr       */
+/*   Updated: 2016/05/10 15:17:09 by tfolly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ av++;
   int a;
   int b;
 //
-	a =    printf("built in %#.x, %.p\n", 0, 0);
-	b = ft_printf("ft       %#.x, %.p\n", 0, 0);
+	a =    printf("built in %hhS\n", 0);// L"米米");
+	b = ft_printf("ft       %S\n", 0);// L"米米");
 
   printf("built in : %d, ft : %d\n", a, b);
 

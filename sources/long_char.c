@@ -42,21 +42,21 @@ int		ft_printf_putlstr(t_data *data, va_list ap)
 	t_lst	*lst;
 
 	lst = 0;
-	data->mwidth = 1;
 	str = va_arg(ap, int*);
-	if (!str)
+	if (!str || !(*str))
 	{
-		ft_putstr("(null)");
-		return (6);
+		// ft_putstr("(null)");
+		lst = pushback_lst(lst, '(');
+		lst = pushback_lst(lst, 'n');
+		lst = pushback_lst(lst, 'u');
+		lst = pushback_lst(lst, 'l');
+		lst = pushback_lst(lst, 'l');
+		lst = pushback_lst(lst, ')');
 	}
-	count = 0;
-	while (*str)
+	while (str && *str)
 	{
 		if (*str < 128)
-		{
-			ft_putchar(*str);
-			count++;
-		}
+			lst = pushback_lst(lst, *str);
 		else if (*str < 2048)
 			lst =  (two_oct(*str, lst));
 		else if (*str < ft_pow(2, 15) * 2 - 1)
@@ -73,16 +73,13 @@ int		ft_printf_putlstr(t_data *data, va_list ap)
 int		ft_printf_putlchar(t_data *data, va_list ap)
 {
 	int		c;
-	t_lst *lst = 0;
+	t_lst *lst;
 	int		count;
 
-	data->mwidth = 1;
+	lst = 0;
 	c = va_arg(ap, int);
 	if (c < 128)
-	{
-		ft_putchar(c);
-		return (1);
-	}
+		lst = pushback_lst(lst, c);
 	else if (c < 2048)
 		lst = two_oct(c, lst);
 	else if (c < ft_pow(2, 15) * 2 - 1)
