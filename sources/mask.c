@@ -64,11 +64,12 @@ char	*fill_mask(char *mask, int c)
 	return (start_mask);
 }
 
-int		print_mask(char *mask, int oct)
+int		print_mask(char *mask, int oct, t_data *data)
 {
-	int	i;
-	int j;
+	int			i;
+	int			j;
 	char c[4];
+	t_lst		*lst;
 
 	i = 0;
 	while (i < oct)
@@ -85,10 +86,13 @@ int		print_mask(char *mask, int oct)
 		i++;
 	}
 	i = 0;
+	lst = 0;
 	while (i < oct)
 	{
-		write(1, &c[i], 1);
+		//write(1, &c[i], 1);
+		lst = pushback_lst(lst, c[i]);
 		i++;
 	}
+	i = lst_finish(lst, data);
 	return (i);
 }

@@ -79,7 +79,7 @@ int		ft_printf_putlloct(t_data *data, va_list ap);
 int		ft_printf_putlchar(t_data *data, va_list ap);
 
 char	*fill_mask(char *mask, int c);
-int		print_mask(char *mask, int oct);
+int		print_mask(char *mask, int oct, t_data *data);
 char	*ft_strrev(char *str);
 
 t_data	*data_mod(t_data *data);

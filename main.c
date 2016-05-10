@@ -26,13 +26,13 @@ av++;
 // 	char *rev;
 //
  //	unsigned char z = UCHAR_MAX + 42;
-    int a;
-    int b;
+  int a;
+  int b;
 //
 	a =    printf("built in %#.x, %.p\n", 0, 0);
 	b = ft_printf("ft       %#.x, %.p\n", 0, 0);
 
-    printf("built in : %d, ft : %d\n", a, b);
+  printf("built in : %d, ft : %d\n", a, b);
 
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
