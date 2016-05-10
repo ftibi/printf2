@@ -38,8 +38,8 @@ av++;
 	//
   // printf("built in : %d, ft : %d\n", a, b);
 
-	b = ft_printf("%o, %ho, %hho\n", -42, -42, -42);
-	a = 	 printf("%o, %ho, %hho\n", -42, -42, -42);
+	b = ft_printf("ft: {%05.%}\n", 0);
+	a = 	 printf("bi: {%05.%}\n", 0);
   printf("built in : %d, ft : %d\n", a, b);
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);

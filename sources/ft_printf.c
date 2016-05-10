@@ -16,6 +16,7 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 {
 	ft_function	fct;
 	char 		*format;
+	t_lst		*lst;
 
 	if (DEBUG)
 		ft_putendl("fmt read");
@@ -33,9 +34,10 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	if (!fct)
 	{
 	//	ft_putendl("no function");
-		ft_putchar(*format);
+//		ft_putchar(*format);
+		lst = new_lst(*format);
+		*count += lst_finish(lst, data);
 		format++;
-		(*count)++;
 		return (format);
 	}
 	else
