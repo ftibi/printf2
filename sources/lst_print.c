@@ -153,6 +153,7 @@ void				free_lst(t_lst *lst)
 	{
 		tmp = lst;
 		lst = lst->next;
+		tmp = 0;
 		free(tmp);
 	}
 }

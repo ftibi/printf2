@@ -73,7 +73,7 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 				lst = pushback_lst(lst, c);
 	    else
 			{
-				if ((lst->c == '-' || lst-> c == '+') && c == '0')
+				if (lst && (lst->c == '-' || lst-> c == '+') && c == '0')
 				{
 						tmp = lst->next;
 						lst->next = new_lst(c);
@@ -89,8 +89,10 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 t_lst		*precisionfmt(t_lst *lst, t_data *data)
 {
 	t_lst *start;
+	t_lst *prev;
 	int		count;
 
+	start = lst;
 	if (data->precision == 0 && ft_strchr(ft_strdup("idDoOuUxX"), *(data->fmt)) && !data->hash) //&& !data->l && !data->ll && !data->h && !data->hh && !data->j && !data->z)
 	{
 		if (lst_sum_digit(lst) == 0)
@@ -98,14 +100,40 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 	}
 
 	if (data->precision == 0 && ((ft_strchr(ft_strdup("xX"), *(data->fmt)) && data->hash) || (ft_strchr(ft_strdup("pP"), *(data->fmt))))) //&& !data->l && !data->ll && !data->h && !data->hh && !data->j && !data->z)
+	{
 		if (lst_sum_alnum(lst) == 0) //fonction a implementer pourles pointeurs
 		{
 			lst = del_all_digits(lst)	;
 			if (*(data->fmt) == 'p' || *(data->fmt) == 'P')
-				lst = pushfront_lst(lst, '0');
+			lst = pushfront_lst(lst, '0');
 		}
-			//ilf aut retirer la condition sur !datahash et laisser juste 1 zero si datahash
-		// if (*(data->fmt) == 'O')
+	}
+	if (data->precision == 0 && ft_strchr(ft_strdup("sS"), *(data->fmt)))
+	{
+		while (lst_len(lst) > data->precision)
+		{
+			if (lst_len(lst) == 1)
+			{
+			//	free(lst);
+				return (0);
+			}
+			else
+			{
+			lst = start;
+			prev = lst;
+			while (lst && lst->next)
+			{
+				prev = lst;
+				lst = lst->next;
+			}
+			prev->next = 0;
+	//		if (lst)
+		//		free(lst);
+			}
+		}
+	}
+	//ilf aut retirer la condition sur !datahash et laisser juste 1 zero si datahash
+	// if (*(data->fmt) == 'O')
 		// 	lst = pushfront_lst(lst, '0');
 	if (data->precision > 0)
 	{
@@ -127,6 +155,8 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 			{
 				//ici il faut cut la string et changer mwidth
 				//data->mwidth = data->precision;
+				// ft_putnbr(data->mwidth); ft_putendl("");
+				// ft_putstr("prec"); ft_putnbr(data->precision); ft_putendl("");
 				start = lst;
 				count = data->precision;
 				while (count > 1)
@@ -165,6 +195,8 @@ t_lst		*spacefmt(t_lst *lst, t_data *data)
 {
 	t_lst	*start;
 
+	if (!lst)
+		return (0);
 	if (!data->space || data->plus)
 		return (lst);
 	start = lst;
