@@ -42,7 +42,7 @@ t_lst		*four_oct(int c, t_lst *lst)
 	return (lst);
 }
 
-int		ft_printf_putlstr(t_data *data, va_list ap)
+int			ft_printf_putlstr(t_data *data, va_list ap)
 {
 	int		count;
 	int		*str;
@@ -68,10 +68,10 @@ int		ft_printf_putlstr(t_data *data, va_list ap)
 	return (count);
 }
 
-int		ft_printf_putlchar(t_data *data, va_list ap)
+int			ft_printf_putlchar(t_data *data, va_list ap)
 {
 	int		c;
-	t_lst *lst;
+	t_lst	*lst;
 	int		count;
 
 	lst = 0;

@@ -15,8 +15,8 @@
 int		ft_printf_putloct(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned long	res;
-	t_lst							*lst;
+	unsigned long		res;
+	t_lst				*lst;
 
 	res = va_arg(ap, unsigned long);
 	lst = 0;
@@ -40,9 +40,9 @@ int		ft_printf_putloct(t_data *data, va_list ap)
 int		ft_printf_putoct(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned int	res;
-	int				nb;
-	t_lst					*lst;
+	unsigned int		res;
+	int					nb;
+	t_lst				*lst;
 
 	lst = 0;
 	nb = va_arg(ap, int);
@@ -71,7 +71,7 @@ int		ft_printf_putptr(t_data *data, va_list ap)
 	unsigned long	pow;
 	unsigned long	res;
 	unsigned long	nb;
-	t_lst					*lst;
+	t_lst			*lst;
 
 	lst = 0;
 	nb = va_arg(ap, unsigned long);
@@ -100,7 +100,7 @@ int		ft_printf_puthexa(t_data *data, va_list ap)
 	unsigned int	pow;
 	unsigned int	res;
 	int				nb;
-	t_lst				*lst;
+	t_lst			*lst;
 
 	lst = 0;
 	nb = va_arg(ap, int);
@@ -126,8 +126,8 @@ int		ft_printf_puthexa(t_data *data, va_list ap)
 
 int		ft_printf_putlhexa(t_data *data, va_list ap)
 {
-	unsigned long long pow;
-	unsigned long	long res;
+	unsigned long long	pow;
+	unsigned long long	res;
 	t_lst				*lst;
 
 	lst = 0;

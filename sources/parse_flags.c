@@ -23,7 +23,6 @@ t_data	*parse_flags(char **fmt)
 		ft_putendl("parse flags");
 	format = (char*)*fmt;
 	format++;
-//	ft_putchar(*format);
 	data = new_data();
 	while (format && *format && ft_strchr("#0-+ ", *format))
 	{

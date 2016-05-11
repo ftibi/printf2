@@ -62,11 +62,11 @@ char	*fill_mask(char *mask, int c)
 	return (start_mask);
 }
 
-t_lst		*print_mask(char *mask, int oct, t_lst *lst)
+t_lst	*print_mask(char *mask, int oct, t_lst *lst)
 {
 	int			i;
 	int			j;
-	char c[4];
+	char		c[4];
 
 	i = 0;
 	while (i < oct)

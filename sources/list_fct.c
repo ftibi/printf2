@@ -24,7 +24,7 @@ static t_fct	*new_fct(void *fct, char conv)
 	return (new_fct);
 }
 
-static t_fct		*add_fct(t_fct *start, void *fct, char conv)
+static t_fct	*add_fct(t_fct *start, void *fct, char conv)
 {
 	t_fct	*tmp;
 
@@ -37,7 +37,7 @@ static t_fct		*add_fct(t_fct *start, void *fct, char conv)
 	return (start);
 }
 
-void						*get_fct(t_fct *start, char conv, t_data *data)
+void			*get_fct(t_fct *start, char conv, t_data *data)
 {
 	if (!ft_strchr("idDxXoOuUsScCpP", conv))
 		conv = 'Z';
@@ -83,7 +83,7 @@ void						*get_fct(t_fct *start, char conv, t_data *data)
 	return (0);
 }
 
-t_fct						*fct_init(void)
+t_fct			*fct_init(void)
 {
 	t_fct	*list;
 

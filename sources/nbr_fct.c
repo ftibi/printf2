@@ -15,9 +15,9 @@
 int		ft_printf_putlunbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned long	res;
-	unsigned long	nb;
-	t_lst						*lst;
+	unsigned long		res;
+	unsigned long		nb;
+	t_lst				*lst;
 
 	lst = 0;
 	nb = va_arg(ap, unsigned long);
@@ -42,9 +42,9 @@ int		ft_printf_putlunbr(t_data *data, va_list ap)
 int		ft_printf_putunbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned int	res;
-	unsigned int			nb;
-	t_lst					*lst;
+	unsigned int		res;
+	unsigned int		nb;
+	t_lst				*lst;
 
 	nb = va_arg(ap, unsigned int);
 	lst = 0;
@@ -70,9 +70,9 @@ int		ft_printf_putunbr(t_data *data, va_list ap)
 int		ft_printf_putlnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned long	res;
-	long long				nb;
-	t_lst						*lst;
+	unsigned long		res;
+	long long			nb;
+	t_lst				*lst;
 
 	lst = 0;
 	nb = va_arg(ap, long);
@@ -97,9 +97,9 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 int		ft_printf_putnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
-	unsigned int	res;
-	int				nb;
-	t_lst			*lst;
+	unsigned int		res;
+	int					nb;
+	t_lst				*lst;
 
 	lst = 0;
 	nb = va_arg(ap, int);

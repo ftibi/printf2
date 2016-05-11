@@ -15,7 +15,7 @@
 int		ft_printf_putstr(t_data *data, va_list ap)
 {
 	char	*str;
-	t_lst *lst;
+	t_lst	*lst;
 
 	str = va_arg(ap, char*);
 	lst = 0;

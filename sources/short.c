@@ -14,9 +14,9 @@
 
 int		ft_printf_puthnbr(t_data *data, va_list ap)
 {
-	short	pow;
+	short			pow;
 	unsigned short	res;
-	short	nb;
+	short			nb;
 	t_lst			*lst;
 
 	lst = 0;
@@ -42,7 +42,7 @@ int		ft_printf_puthhnbr(t_data *data, va_list ap)
 {
 	unsigned char	pow;
 	unsigned char	res;
-	char						nb;
+	char			nb;
 	t_lst			*lst;
 
 	lst = 0;
@@ -93,7 +93,7 @@ int		ft_printf_puthhoct(t_data *data, va_list ap)
 {
 	unsigned int	pow;
 	unsigned char	res;
-	t_lst					*lst;
+	t_lst			*lst;
 
 	lst = 0;
 	res = va_arg(ap, int);
@@ -119,7 +119,7 @@ int		ft_printf_puthoct(t_data *data, va_list ap)
 {
 	unsigned short	pow;
 	unsigned short	res;
-	t_lst					*lst;
+	t_lst			*lst;
 
 	lst = 0;
 	res = va_arg(ap, int);
@@ -144,7 +144,7 @@ int		ft_printf_puthhhexa(t_data *data, va_list ap)
 {
 	unsigned int	pow;
 	unsigned char	res;
-	t_lst				*lst;
+	t_lst			*lst;
 
 	lst = 0;
 	res = va_arg(ap, int);

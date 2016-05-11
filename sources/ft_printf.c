@@ -35,17 +35,15 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	return (format);
 }
 
-int		ft_printf(const char *format2, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			count;
 	t_data		*data;
 	t_fct		*fct_lst;
-	char		*format;
 
-	format = ft_strdup(format2);
 	count = 0;
-	va_start(ap, format2);
+	va_start(ap, format);
 	fct_lst = fct_init();
 	while (*format)
 	{
@@ -57,7 +55,7 @@ int		ft_printf(const char *format2, ...)
 		}
 		if (*format == '%')
 		{
-			data = parse_flags(&format);
+			data = parse_flags((char**)&format);
 			format = fmt_read(data, ap, &count, fct_lst);
 		}
 	}
