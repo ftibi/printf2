@@ -146,14 +146,12 @@ t_lst		*precisionfmt(t_lst *lst, t_data *data)
 		}
 		if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
 		{
-			while (lst_len(lst) < data->precision + (lst->c == '-'))
+			while (lst_len(lst) < data->precision + (lst->c == '-') + (lst->c == '+'))
 			{
-				if (lst->c == '-')
-				{
+				if (lst->c == '-' || (lst->c == '+'))
 					lst->next = pushfront_lst(lst->next, '0');
-				}
 				else
-				lst = pushfront_lst(lst, '0');
+					lst = pushfront_lst(lst, '0');
 			}
 		}
 
