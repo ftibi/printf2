@@ -14,9 +14,9 @@
 
 int		ft_printf_putlunbr(t_data *data, va_list ap)
 {
-	unsigned  long long	pow;
-	unsigned  long	res;
-	unsigned  long	nb;
+	unsigned long long	pow;
+	unsigned long	res;
+	unsigned long	nb;
 	t_lst						*lst;
 
 	lst = 0;
@@ -77,17 +77,10 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, long);
 	if (nb == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	if (nb < 0)
-	{
-		res = -nb;
 		lst = pushback_lst(lst, '-');
-	}
-	else
-		res = nb;
+	res = (nb < 0) ? -nb : nb;
 	pow = 1;
 	while (pow <= res)
 		pow *= 10;
@@ -101,7 +94,6 @@ int		ft_printf_putlnbr(t_data *data, va_list ap)
 	return (lst_finish(lst, data));
 }
 
-
 int		ft_printf_putnbr(t_data *data, va_list ap)
 {
 	unsigned long long	pow;
@@ -112,17 +104,10 @@ int		ft_printf_putnbr(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, int);
 	if (nb == 0)
-	{
-			lst = pushback_lst(lst, '0');
-			return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	if (nb < 0)
-	{
-		res = -nb;
 		lst = pushback_lst(lst, '-');
-	}
-	else
-		res = nb;
+	res = (nb < 0) ? -nb : nb;
 	pow = 1;
 	while (pow <= res)
 		pow *= 10;

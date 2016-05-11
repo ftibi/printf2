@@ -12,12 +12,10 @@
 
 #include "../includes/ft_printf.h"
 
-t_data		*new_data()
+t_data		*new_data(void)
 {
 	t_data	*new;
 
-	if (DEBUG)
-		ft_putendl("new data");
 	if (!(new = (t_data*)ft_memalloc(sizeof(t_data))))
 		return (0);
 	new->hash = 0;
@@ -34,17 +32,15 @@ t_data		*new_data()
 	new->mwidth = 0;
 	new->precision = -1;
 	new->fmt = 0;
-	if (DEBUG)
-		ft_putendl("end new data");
 	return (new);
 }
 
-void	print_flags(t_data *new)
+void		print_flags(t_data *new)
 {
 	if (DEBUG)
 		ft_putendl("print flags");
 	ft_putstr("hash : ");
-    ft_putnbr(new->hash);
+	ft_putnbr(new->hash);
 	ft_putchar('\n');
 	ft_putstr("plus : ");
 	ft_putnbr(new->plus);

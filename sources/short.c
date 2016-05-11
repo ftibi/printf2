@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   short.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/11 10:43:14 by tfolly            #+#    #+#             */
+/*   Updated: 2016/05/11 10:43:16 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 int		ft_printf_puthhnbr(t_data *data, va_list ap)
@@ -10,17 +22,10 @@ int		ft_printf_puthhnbr(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, int);
 	if (nb == 0)
-	{
-			lst = pushback_lst(lst, '0');
-			return (lst_finish(lst, data));
-	}
+		return (lst_finish(lst = pushback_lst(lst, '0'), data));
 	if (nb < 0)
-	{
-		res = -nb;
 		lst = pushback_lst(lst, '-');
-	}
-	else
-		res = nb;
+	res = (nb < 0) ? -nb : nb;
 	pow = 1;
 	while (pow <= res / 10)
 		pow *= 10;
@@ -43,8 +48,8 @@ int		ft_printf_putuhhnbr(t_data *data, va_list ap)
 	res = va_arg(ap, int);
 	if (res == 0)
 	{
-			lst = pushback_lst(lst, '0');
-			return (lst_finish(lst, data));
+		lst = pushback_lst(lst, '0');
+		return (lst_finish(lst, data));
 	}
 	pow = 1;
 	while (pow <= res / 10)
@@ -109,7 +114,6 @@ int		ft_printf_puthoct(t_data *data, va_list ap)
 	return (lst_finish(lst, data));
 }
 
-
 int		ft_printf_puthhhexa(t_data *data, va_list ap)
 {
 	unsigned int	pow;
@@ -119,10 +123,7 @@ int		ft_printf_puthhhexa(t_data *data, va_list ap)
 	lst = 0;
 	res = va_arg(ap, int);
 	if (res == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	pow = 1;
 	while (pow <= res / 16)
 		pow *= 16;

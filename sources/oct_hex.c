@@ -1,6 +1,16 @@
-#include "../includes/ft_printf.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   oct_hex.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/11 10:39:59 by tfolly            #+#    #+#             */
+/*   Updated: 2016/05/11 10:40:00 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../includes/ft_printf.h"
 
 int		ft_printf_putloct(t_data *data, va_list ap)
 {
@@ -17,7 +27,7 @@ int		ft_printf_putloct(t_data *data, va_list ap)
 	}
 	pow = 1;
 	while (pow <= res / 8)
-			pow *= 8;
+		pow *= 8;
 	while (pow)
 	{
 		lst = pushback_lst(lst, '0' + res / pow);
@@ -56,7 +66,6 @@ int		ft_printf_putoct(t_data *data, va_list ap)
 	return (lst_finish(lst, data));
 }
 
-
 int		ft_printf_putptr(t_data *data, va_list ap)
 {
 	unsigned long	pow;
@@ -69,10 +78,7 @@ int		ft_printf_putptr(t_data *data, va_list ap)
 	lst = pushback_lst(lst, '0');
 	lst = pushback_lst(lst, 'x');
 	if (nb == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	res = nb;
 	pow = 1;
 	while (res / pow >= 16)
@@ -99,10 +105,7 @@ int		ft_printf_puthexa(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, int);
 	if (nb == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	res = nb;
 	pow = 1;
 	while (res / pow >= 16)
@@ -130,10 +133,7 @@ int		ft_printf_putlhexa(t_data *data, va_list ap)
 	lst = 0;
 	res = va_arg(ap, unsigned long long);
 	if (res == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	pow = 1;
 	while (res / pow >= 16)
 		pow *= 16;

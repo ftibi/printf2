@@ -16,7 +16,7 @@ static t_fct	*new_fct(void *fct, char conv)
 {
 	t_fct	*new_fct;
 
-	if(!(new_fct = (t_fct*)ft_memalloc(sizeof(t_fct))))
+	if (!(new_fct = (t_fct*)ft_memalloc(sizeof(t_fct))))
 		return (0);
 	new_fct->fct = fct;
 	new_fct->conv = conv;
@@ -31,17 +31,14 @@ static t_fct		*add_fct(t_fct *start, void *fct, char conv)
 	if (!start)
 		return (new_fct(fct, conv));
 	tmp = start;
-	while(tmp->next)
+	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new_fct(fct, conv);
 	return (start);
 }
 
-void	*get_fct(t_fct *start, char conv, t_data *data)
+void						*get_fct(t_fct *start, char conv, t_data *data)
 {
-	if (DEBUG)
-		ft_putendl("get fct");
-	// faire les equivalences de fctions
 	if (!ft_strchr("idDxXoOuUsScCpP", conv))
 		conv = 'Z';
 	if (data->l && (conv == 'd' || conv == 'i'))
@@ -49,20 +46,20 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 	if (data->l && (conv == 's'))
 		conv = 'S';
 	if (data->l && conv == 'c')
-			conv = 'C';
-	if (data->l && conv == 'o' )
-			conv = 'O';
-	if (data->l && conv == 'u' )
+		conv = 'C';
+	if (data->l && conv == 'o')
+		conv = 'O';
+	if (data->l && conv == 'u')
 		conv = 'U';
 	if (data->l && (conv == 'x' || conv == 'X'))
 		conv = 'H';
-	if ((data->ll || data->j || data->z) && conv == 'u' )
+	if ((data->ll || data->j || data->z) && conv == 'u')
 		conv = 'I';
 	if ((data->ll || data->j || data->z) && (conv == 'd' || conv == 'i'))
 		conv = 'F';
 	if ((data->ll || data->j || data->z) && (conv == 'x' || conv == 'X'))
 		conv = 'H';
-	if ((data->ll || data->j || data->z) && conv == 'o' )
+	if ((data->ll || data->j || data->z) && conv == 'o')
 		conv = 'P';
 	if (data->hh && (conv == 'd' || conv == 'i'))
 		conv = 'h';
@@ -74,8 +71,6 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 		conv = 'l';
 	if (data->hh && (conv == 'x' || conv == 'X'))
 		conv = 'v';
-
-
 	while (start)
 	{
 		if (start->conv == conv)
@@ -86,7 +81,7 @@ void	*get_fct(t_fct *start, char conv, t_data *data)
 	return (0);
 }
 
-t_fct		*fct_init()
+t_fct						*fct_init(void)
 {
 	t_fct	*list;
 

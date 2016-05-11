@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   longlong.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/11 10:29:30 by tfolly            #+#    #+#             */
+/*   Updated: 2016/05/11 10:29:32 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 int		ft_printf_putlloct(t_data *data, va_list ap)
@@ -15,7 +27,7 @@ int		ft_printf_putlloct(t_data *data, va_list ap)
 	}
 	pow = 1;
 	while (pow <= res / 8)
-			pow *= 8;
+		pow *= 8;
 	while (pow)
 	{
 		lst = pushback_lst(lst, '0' + res / pow);
@@ -34,10 +46,7 @@ int		ft_printf_putllhexa(t_data *data, va_list ap)
 	lst = 0;
 	res = va_arg(ap, unsigned long long);
 	if (res == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	pow = 1;
 	while (res / pow >= 16)
 		pow *= 16;
@@ -57,18 +66,15 @@ int		ft_printf_putllhexa(t_data *data, va_list ap)
 
 int		ft_printf_putllunbr(t_data *data, va_list ap)
 {
-	unsigned  long long	pow;
-	unsigned  long	long res;
-	unsigned  long	long nb;
+	unsigned long long	pow;
+	unsigned long	long res;
+	unsigned long	long nb;
 	t_lst						*lst;
 
 	lst = 0;
 	nb = va_arg(ap, unsigned long long);
 	if (nb == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	res = nb;
 	pow = 1;
 	while (pow <= res / 10)
@@ -92,21 +98,13 @@ int		ft_printf_putllnbr(t_data *data, va_list ap)
 	lst = 0;
 	nb = va_arg(ap, long long);
 	if (nb == 0)
-	{
-		lst = pushback_lst(lst, '0');
-		return (lst_finish(lst, data));
-	}
+		return (lst_finish(pushback_lst(lst, '0'), data));
 	if (nb < 0)
-	{
-		res = -nb;
 		lst = pushback_lst(lst, '-');
-	}
-	else
-		res = nb;
+	res = (nb < 0) ? -nb : nb;
 	pow = 1;
-	while (pow <= res)
+	while (pow <= res / 10)
 		pow *= 10;
-	pow /= 10;
 	while (pow)
 	{
 		lst = pushback_lst(lst, '0' + res / pow);

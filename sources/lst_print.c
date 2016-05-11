@@ -17,6 +17,17 @@ void	ft_error(int nb)
 	exit(nb);
 }
 
+t_lst		*lst_null(t_lst *lst)
+{
+	lst = pushback_lst(lst, '(');
+	lst = pushback_lst(lst, 'n');
+	lst = pushback_lst(lst, 'u');
+	lst = pushback_lst(lst, 'l');
+	lst = pushback_lst(lst, 'l');
+	lst = pushback_lst(lst, ')');
+	return (lst);
+}
+
 t_lst	*new_lst(char c)
 {
 	t_lst	*new;
@@ -65,7 +76,9 @@ int					lst_len(t_lst *lst)
 
 int					lst_digit(t_lst *lst)
 {
-	int	count = 0;
+	int	count;
+
+	count = 0;
 	while (lst)
 	{
 		if (ft_isdigit(lst->c))

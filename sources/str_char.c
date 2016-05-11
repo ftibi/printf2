@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_char.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfolly <tfolly@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/11 10:46:25 by tfolly            #+#    #+#             */
+/*   Updated: 2016/05/11 10:46:27 by tfolly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 int		ft_printf_putstr(t_data *data, va_list ap)
@@ -8,14 +20,7 @@ int		ft_printf_putstr(t_data *data, va_list ap)
 	str = va_arg(ap, char*);
 	lst = 0;
 	if (!str)
-	{
-		lst = pushback_lst(lst, '(');
-		lst = pushback_lst(lst, 'n');
-		lst = pushback_lst(lst, 'u');
-		lst = pushback_lst(lst, 'l');
-		lst = pushback_lst(lst, 'l');
-		lst = pushback_lst(lst, ')');
-	}
+		lst = lst_null(lst);
 	while (str && *str)
 	{
 		lst = pushback_lst(lst, *str);

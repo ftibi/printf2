@@ -95,6 +95,7 @@ char	*ft_strrev(char *str);
 t_lst				*new_lst(char c);
 t_lst				*pushback_lst(t_lst *lst, char c);
 t_lst				*pushfront_lst(t_lst *lst, char c);
+t_lst				*lst_null(t_lst *lst);
 int					lst_len(t_lst *lst);
 int					lst_digit(t_lst *lst);
 int					lst_sum_digit(t_lst *lst);
