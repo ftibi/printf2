@@ -19,15 +19,11 @@ t_data	*parse_flags(char **fmt)
 	int		nb;
 	int		i;
 
-	if (DEBUG)
-		ft_putendl("parse flags");
 	format = (char*)*fmt;
 	format++;
 	data = new_data();
 	while (format && *format && ft_strchr("#0-+ ", *format))
 	{
-		if (DEBUG)
-			ft_putendl("parse flags 1.5");
 		if (*format == '#')
 			data->hash = 1;
 		if (*format == '0')
@@ -40,8 +36,6 @@ t_data	*parse_flags(char **fmt)
 			data->space = 1;
 		format++;
 	}
-	if (DEBUG)
-		ft_putendl("parse flags 2");
 	if (ft_isdigit(*format))
 	{
 		nb = *format - '0';
@@ -53,8 +47,6 @@ t_data	*parse_flags(char **fmt)
 		}
 		data->mwidth = nb;
 	}
-	if (DEBUG)
-		ft_putendl("parse flags3");
 	if (*format == '.')
 	{
 		format++;
@@ -68,8 +60,6 @@ t_data	*parse_flags(char **fmt)
 		}
 		data->precision = nb;
 	}
-	if (DEBUG)
-		ft_putendl("parse flags4");
 	while (format && *format && ft_strchr("hljz", *format))
 	{
 		if (*format == 'j')
@@ -98,8 +88,6 @@ t_data	*parse_flags(char **fmt)
 		}
 		format++;
 	}
-	if (DEBUG)
-		ft_putendl("end parse flags");
 	data->fmt = format;
 	return (data);
 }

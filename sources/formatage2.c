@@ -22,6 +22,8 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 		c = ' ';
 	while (lst_len(lst) < data->mwidth)
 	{
+		if (ft_strchr("idDxXoOuU", *(data->fmt)) && data->space)
+			data->mwidth--;
 		if (data->precision > 0 && lst_digit(lst) >= data->precision &&
 				ft_strchr("idDxXoOuU", *(data->fmt)))
 			c = ' ';

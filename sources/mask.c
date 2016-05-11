@@ -69,8 +69,10 @@ t_lst	*print_mask(char *mask, int oct, t_lst *lst)
 	int			i;
 	int			j;
 	char		c[4];
+	char		*start_mask;
 
 	i = 0;
+	start_mask = mask;
 	while (i < oct)
 	{
 		j = 7;
@@ -90,5 +92,7 @@ t_lst	*print_mask(char *mask, int oct, t_lst *lst)
 		lst = pushback_lst(lst, c[i]);
 		i++;
 	}
+//	if (start_mask)
+//		free(start_mask);
 	return (lst);
 }
