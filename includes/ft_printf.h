@@ -78,6 +78,9 @@ int					ft_printf_putloct(t_data *data, va_list ap);
 int					ft_printf_putlloct(t_data *data, va_list ap);
 int					ft_printf_putlchar(t_data *data, va_list ap);
 
+t_fct				*add_fct(t_fct *start, void *fct, char conv);
+t_fct				*new_fct(void *fct, char conv);
+
 t_data				*data_mod(t_data *data);
 typedef struct		s_lst
 {

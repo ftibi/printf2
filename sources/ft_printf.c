@@ -14,14 +14,14 @@
 
 char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 {
-	ft_function				fct;
+	t_ft_function			fct;
 	char					*format;
 	t_lst					*lst;
 
 	format = data->fmt;
 	if (!(*format))
 		return (format);
-	fct = (ft_function)get_fct(fct_lst, *format, data);
+	fct = (t_ft_function)get_fct(fct_lst, *format, data);
 	if (!fct)
 	{
 		lst = new_lst(*format);
