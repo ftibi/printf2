@@ -59,12 +59,10 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 	char    c;
 	t_lst		*tmp;
 
-	if (data->zero && !data->minus)
+	if (data->zero && !data->minus) //possible de faire un ternaire sur 1 ligne
 	c = '0';
 	else
 	c = ' ';
-	if (data->space && ft_strchr("idD",*(data->fmt)))
-	data->mwidth--;
 	while (lst_len(lst) < data->mwidth)
 	{
 		if (data->precision > 0 && lst_digit(lst) >= data->precision && ft_strchr("idDxXoOuU", *(data->fmt)))

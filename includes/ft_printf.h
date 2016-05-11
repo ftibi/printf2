@@ -60,6 +60,7 @@ int		ft_printf_putstr(t_data *data, va_list ap);
 int		ft_printf_putlstr(t_data *data, va_list ap);
 int		ft_printf_putuhhnbr(t_data *data, va_list ap);
 int		ft_printf_puthhnbr(t_data *data, va_list ap);
+int		ft_printf_puthnbr(t_data *data, va_list ap);
 int		ft_printf_putnbr(t_data *data, va_list ap);
 int		ft_printf_putunbr(t_data *data, va_list ap);
 int		ft_printf_putlunbr(t_data *data, va_list ap);
