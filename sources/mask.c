@@ -38,6 +38,8 @@ char	*fill_mask(char *mask, int c)
 
 	tmp = ft_itoa_base(c, 2);
 	rev = ft_strrev(tmp);
+	if (tmp)
+		free(tmp);
 	start_mask = mask;
 	while (*mask)
 		mask++;

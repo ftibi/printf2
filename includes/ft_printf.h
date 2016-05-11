@@ -15,10 +15,10 @@
 # include "../libft/includes/libft.h"
 # include <stdarg.h>
 # define DEBUG 0
-// a enlever
-typedef int(*ft_function)(void*, void*);
 
-int		ft_printf(const char *format, ...);
+typedef int			(*t_ft_function)(void*, void*);
+
+int					ft_printf(const char *format, ...);
 
 typedef struct		s_fct
 {
@@ -27,10 +27,9 @@ typedef struct		s_fct
 	struct s_fct	*next;
 
 }					t_fct;
-//t_fct				*add_fct(t_fct *start, void *fct, char conv);
 void				ft_error(int nb);
 
-typedef struct	s_data
+typedef struct		s_data
 {
 	int			hash;
 	int			plus;
@@ -43,54 +42,52 @@ typedef struct	s_data
 	int			ll;
 	int			j;
 	int			z;
-	int			mwidth; //largeur mini
+	int			mwidth;
 	int			precision;
 	char		*fmt;
-}				t_data;
+}					t_data;
 
-t_fct		*fct_init(void);
-void		*get_fct(t_fct *start, char conv, t_data *data);
-t_data	*parse_flags(char **fmt);
-t_data	*new_data(void);
+t_fct				*fct_init(void);
+void				*get_fct(t_fct *start, char conv, t_data *data);
+t_data				*parse_flags(char **fmt);
+t_data				*new_data(void);
 
-void	print_flags(t_data *data);
+void				print_flags(t_data *data);
 
-int		ft_printf_putstr(t_data *data, va_list ap);
-int		ft_printf_putlstr(t_data *data, va_list ap);
-int		ft_printf_putuhhnbr(t_data *data, va_list ap);
-int		ft_printf_puthhnbr(t_data *data, va_list ap);
-int		ft_printf_puthnbr(t_data *data, va_list ap);
-int		ft_printf_putnbr(t_data *data, va_list ap);
-int		ft_printf_putunbr(t_data *data, va_list ap);
-int		ft_printf_putlunbr(t_data *data, va_list ap);
-int		ft_printf_putllunbr(t_data *data, va_list ap);
-int		ft_printf_putlnbr(t_data *data, va_list ap);
-int		ft_printf_putllnbr(t_data *data, va_list ap);
-int		ft_printf_puthhhexa(t_data *data, va_list ap);
-int		ft_printf_puthexa(t_data *data, va_list ap);
-int		ft_printf_putlhexa(t_data *data, va_list ap);
-int		ft_printf_putllhexa(t_data *data, va_list ap);
-int		ft_printf_putptr(t_data *data, va_list ap);
-int		ft_printf_putchar(t_data *data, va_list ap);
-int		ft_printf_puthhoct(t_data *data, va_list ap);
-int		ft_printf_puthoct(t_data *data, va_list ap);
-int		ft_printf_putoct(t_data *data, va_list ap);
-int		ft_printf_putloct(t_data *data, va_list ap);
-int		ft_printf_putlloct(t_data *data, va_list ap);
-int		ft_printf_putlchar(t_data *data, va_list ap);
+int					ft_printf_putstr(t_data *data, va_list ap);
+int					ft_printf_putlstr(t_data *data, va_list ap);
+int					ft_printf_putuhhnbr(t_data *data, va_list ap);
+int					ft_printf_puthhnbr(t_data *data, va_list ap);
+int					ft_printf_puthnbr(t_data *data, va_list ap);
+int					ft_printf_putnbr(t_data *data, va_list ap);
+int					ft_printf_putunbr(t_data *data, va_list ap);
+int					ft_printf_putlunbr(t_data *data, va_list ap);
+int					ft_printf_putllunbr(t_data *data, va_list ap);
+int					ft_printf_putlnbr(t_data *data, va_list ap);
+int					ft_printf_putllnbr(t_data *data, va_list ap);
+int					ft_printf_puthhhexa(t_data *data, va_list ap);
+int					ft_printf_puthexa(t_data *data, va_list ap);
+int					ft_printf_putlhexa(t_data *data, va_list ap);
+int					ft_printf_putllhexa(t_data *data, va_list ap);
+int					ft_printf_putptr(t_data *data, va_list ap);
+int					ft_printf_putchar(t_data *data, va_list ap);
+int					ft_printf_puthhoct(t_data *data, va_list ap);
+int					ft_printf_puthoct(t_data *data, va_list ap);
+int					ft_printf_putoct(t_data *data, va_list ap);
+int					ft_printf_putloct(t_data *data, va_list ap);
+int					ft_printf_putlloct(t_data *data, va_list ap);
+int					ft_printf_putlchar(t_data *data, va_list ap);
 
-
-t_data	*data_mod(t_data *data);
-
-typedef struct		s_lst //LC pour stocker les chaines a afficher
+t_data				*data_mod(t_data *data);
+typedef struct		s_lst
 {
 	char			c;
 	struct s_lst	*next;
 }					t_lst;
 
-t_lst	*print_mask(char *mask, int oct, t_lst *lst);
-char	*fill_mask(char *mask, int c);
-char	*ft_strrev(char *str);
+t_lst				*print_mask(char *mask, int oct, t_lst *lst);
+char				*fill_mask(char *mask, int c);
+char				*ft_strrev(char *str);
 
 t_lst				*new_lst(char c);
 t_lst				*pushback_lst(t_lst *lst, char c);
@@ -110,6 +107,5 @@ t_lst				*plusfmt(t_lst *lst, t_data *data);
 t_lst				*precisionfmt(t_lst *lst, t_data *data);
 t_lst				*spacefmt(t_lst *lst, t_data *data);
 int					lst_finish(t_lst *lst, t_data *data);
-
 
 #endif

@@ -19,6 +19,7 @@ t_lst		*two_oct(int c, t_lst *lst)
 	mask = ft_strdup("110xxxxx10xxxxxx");
 	mask = fill_mask(mask, c);
 	lst = print_mask(mask, 2, lst);
+	free(mask);
 	return (lst);
 }
 
@@ -29,6 +30,7 @@ t_lst		*three_oct(int c, t_lst *lst)
 	mask = ft_strdup("1110xxxx10xxxxxx10xxxxxx");
 	mask = fill_mask(mask, c);
 	lst = print_mask(mask, 3, lst);
+	free(mask);
 	return (lst);
 }
 
@@ -39,6 +41,7 @@ t_lst		*four_oct(int c, t_lst *lst)
 	mask = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx");
 	mask = fill_mask(mask, c);
 	lst = print_mask(mask, 4, lst);
+	free(mask);
 	return (lst);
 }
 
