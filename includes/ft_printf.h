@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # define DEBUG 0
 // a enlever
-#include <stdio.h>
 typedef int(*ft_function)(void*, void*);
 
 int		ft_printf(const char *format, ...);
