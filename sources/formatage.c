@@ -68,19 +68,21 @@ t_lst		*mwidthfmt(t_lst *lst, t_data *data)
 	while (lst_len(lst) < data->mwidth)
 	{
 		if (data->precision > 0 && lst_digit(lst) >= data->precision && ft_strchr("idDxXoOuU", *(data->fmt)))
-		c = ' ';
+			c = ' ';
 		if (data->minus)
-		lst = pushback_lst(lst, c);
+			lst = pushback_lst(lst, c);
 		else
 		{
 			if (lst && (lst->c == '-' || lst-> c == '+') && c == '0')
 			{
 				tmp = lst->next;
 				lst->next = new_lst(c);
-				lst->next->next = tmp;
+				lst->next->next = tmp;//possible de faire un push front sur le next en 1 ligne?
 			}
+			else if ((*(data->fmt) == 'p' || ((*(data->fmt) == 'x' || *(data->fmt) == 'X') && data->hash)) && c == '0')
+					lst->next->next = pushfront_lst(lst->next->next, '0');
 			else
-			lst = pushfront_lst(lst, c);
+				lst = pushfront_lst(lst, c);
 		}
 	}
 	return (lst);
