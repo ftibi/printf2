@@ -30,6 +30,24 @@ char	*ft_strrev(char *str)
 	return (rev);
 }
 
+void	fill_maskb(char **mask2, char **rev2, char *start_mask)
+{
+	char	*mask;
+	char	*rev;
+
+	mask = *mask2;
+	rev = *rev2;
+	while (mask != start_mask && *rev)
+	{
+		if (*mask == 'x')
+		{
+			*mask = *rev;
+			rev++;
+		}
+		mask--;
+	}
+}
+
 char	*fill_mask(char *mask, int c)
 {
 	char	*tmp;
@@ -44,15 +62,7 @@ char	*fill_mask(char *mask, int c)
 	while (*mask)
 		mask++;
 	mask--;
-	while (mask != start_mask && *rev)
-	{
-		if (*mask == 'x')
-		{
-			*mask = *rev;
-			rev++;
-		}
-		mask--;
-	}
+	fill_maskb(&mask, &rev, start_mask);
 	if (*rev)
 		*mask = *rev;
 	while (*mask)
@@ -84,15 +94,8 @@ t_lst	*print_mask(char *mask, int oct, t_lst *lst)
 			j--;
 			mask++;
 		}
-		i++;
-	}
-	i = 0;
-	while (i < oct)
-	{
 		lst = pushback_lst(lst, c[i]);
 		i++;
 	}
-//	if (start_mask)
-//		free(start_mask);
 	return (lst);
 }

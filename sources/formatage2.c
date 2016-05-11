@@ -12,37 +12,6 @@
 
 #include "../includes/ft_printf.h"
 
-t_lst		*mwidthfmt(t_lst *lst, t_data *data)
-{
-	char	c;
-
-	if (data->zero && !data->minus)
-		c = '0';
-	else
-		c = ' ';
-	while (lst_len(lst) < data->mwidth)
-	{
-		if (ft_strchr("idDxXoOuU", *(data->fmt)) && data->space)
-			data->mwidth--;
-		if (data->precision > 0 && lst_digit(lst) >= data->precision &&
-				ft_strchr("idDxXoOuU", *(data->fmt)))
-			c = ' ';
-		if (data->minus)
-			lst = pushback_lst(lst, c);
-		else
-		{
-			if (lst && (lst->c == '-' || lst->c == '+') && c == '0')
-				lst->next = pushfront_lst(lst->next, c);
-			else if ((*(data->fmt) == 'p' || ((*(data->fmt) == 'x' ||
-					*(data->fmt) == 'X') && data->hash)) && c == '0')
-				lst->next->next = pushfront_lst(lst->next->next, '0');
-			else
-				lst = pushfront_lst(lst, c);
-		}
-	}
-	return (lst);
-}
-
 t_lst		*precisionfmt(t_lst *lst, t_data *data)
 {
 	t_lst	*start;
