@@ -26,10 +26,8 @@ int					lst_sum_alnum(t_lst *lst)
 	return (count);
 }
 
-t_lst				*del_all_digits(t_lst *lst)
+static t_lst		*del_first_digit(t_lst *lst)
 {
-	t_lst		*start;
-	t_lst		*prev;
 	t_lst		*tmp;
 
 	while (lst && ft_isdigit(lst->c))
@@ -38,6 +36,16 @@ t_lst				*del_all_digits(t_lst *lst)
 		lst = lst->next;
 		free(tmp);
 	}
+	return (lst);
+}
+
+t_lst				*del_all_digits(t_lst *lst)
+{
+	t_lst		*start;
+	t_lst		*prev;
+	t_lst		*tmp;
+
+	lst = del_first_digit(lst);
 	start = lst;
 	prev = lst;
 	while (lst)
