@@ -14,7 +14,8 @@
 
 void		ft_error(int nb)
 {
-	exit(nb);
+	nb++;
+	exit(0);
 }
 
 t_lst		*lst_null(t_lst *lst)
