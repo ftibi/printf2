@@ -71,7 +71,7 @@ t_lst		*spacefmt(t_lst *lst, t_data *data)
 	start = lst;
 	if (ft_strchr("idD", *(data->fmt)))
 	{
-		if (ft_isdigit(lst->c))
+		if (ft_isdigit(lst->c) || lst->c == ' ')
 		{
 			lst = pushfront_lst(lst, ' ');
 			return (lst);

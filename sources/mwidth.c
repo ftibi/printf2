@@ -27,15 +27,20 @@ static t_lst		*mwidthfmtb(t_lst *lst, t_data *data, char c)
 t_lst				*mwidthfmt(t_lst *lst, t_data *data)
 {
 	char	c;
+	int		space;
 
+	space = 1;
 	if (data->zero && !data->minus)
 		c = '0';
 	else
 		c = ' ';
 	while (lst_len(lst) < data->mwidth)
 	{
-		if (ft_strchr("idDxXoOuU", *(data->fmt)) && data->space)
+		if (ft_strchr("idDxXoOuU", *(data->fmt)) && data->space && space)
+		{
 			data->mwidth--;
+			space = 0;
+		}
 		if (data->precision > 0 && lst_digit(lst) >= data->precision &&
 				ft_strchr("idDxXoOuU", *(data->fmt)))
 			c = ' ';

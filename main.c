@@ -39,8 +39,8 @@ av++;
 	//
   // printf("built in : %d, ft : %d\n", a, b);
 
-	b = ft_printf("ft: {% 03d}\n", 0);
-	a =    printf("bi: {% 03d}\n", 0);
+	b = ft_printf("ft: % 10.5d\n", 4242);
+	a =    printf("bi: % 10.5d\n", 4242);
   printf("built in : %d, ft : %d\n", a, b);
 	//ft_printf("char : %C \n", i);
 //	printf("{%S}", NULL);
