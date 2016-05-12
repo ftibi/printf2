@@ -38,7 +38,7 @@ static t_lst		*pos_pres_s(t_lst *lst, t_data *data)
 
 	if (!data->precision)
 	{
-		free(lst);
+		free_lst(lst);
 		return (0);
 	}
 	if (lst_len(lst) > data->precision)
@@ -82,13 +82,8 @@ static t_lst		*pos_pres_fmt(t_lst *lst, t_data *data)
 
 t_lst				*precisionfmt(t_lst *lst, t_data *data)
 {
-	t_lst	*start;
-
-	start = lst;
 	lst = prec_null_fmt(lst, data);
-	if (data->precision > 0 && ft_strchr("S", *(data->fmt)))
-		lst = 0;
-	else if (data->precision >= 0 && ft_strchr("sS", *(data->fmt)))
+	if (data->precision >= 0 && ft_strchr("sS", *(data->fmt)))
 		lst = pos_pres_s(lst, data);
 	else if (data->precision > 0)
 		lst = pos_pres_fmt(lst, data);

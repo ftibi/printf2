@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
+char		*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 {
 	t_ft_function			fct;
 	char					*format;
@@ -35,7 +35,15 @@ char	*fmt_read(t_data *data, va_list ap, int *count, t_fct *fct_lst)
 	return (format);
 }
 
-int		ft_printf(const char *format, ...)
+static char	*print_loop(char *format, int *count)
+{
+	ft_putchar(*format);
+	format++;
+	(*count)++;
+	return (format);
+}
+
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			count;
@@ -45,25 +53,21 @@ int		ft_printf(const char *format, ...)
 	count = 0;
 	va_start(ap, format);
 	fct_lst = fct_init();
-	data = 0;
 	while (*format)
 	{
 		while (*format != '%' && *format)
-		{
-			ft_putchar(*format);
-			format++;
-			count++;
-		}
+			format = print_loop((char*)format, &count);
 		if (*format == '%')
 		{
 			format++;
+			data = 0;
 			data = parse_flags((char**)&format);
 			format = fmt_read(data, ap, &count, fct_lst);
+			if (data)
+				free(data);
 		}
 	}
 	va_end(ap);
 	free_lstfct(fct_lst);
-	if (data)
-		free(data);
 	return (count);
 }
