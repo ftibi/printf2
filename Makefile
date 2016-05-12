@@ -11,7 +11,7 @@ SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ = $(SRC:.c=.o)
 
-LIB = libft.a
+LIB = libft/libft.a
 
 CC = gcc
 
@@ -23,11 +23,11 @@ all: $(NAME)
 
 $(LIB):
 	make -C ./libft
-	cp ./libft/libft.a libft.a
 
 $(NAME): $(OBJ) $(LIB)
-	mv $(LIB) $(NAME)
+	cp $(LIB) $(NAME)
 	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
