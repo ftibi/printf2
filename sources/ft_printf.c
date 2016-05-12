@@ -55,6 +55,7 @@ int		ft_printf(const char *format, ...)
 		}
 		if (*format == '%')
 		{
+			format++;
 			data = parse_flags((char**)&format);
 			format = fmt_read(data, ap, &count, fct_lst);
 		}

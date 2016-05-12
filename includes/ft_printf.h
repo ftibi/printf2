@@ -49,8 +49,12 @@ typedef struct		s_data
 
 t_fct				*fct_init(void);
 void				*get_fct(t_fct *start, char conv, t_data *data);
-t_data				*parse_flags(char **fmt);
 t_data				*new_data(void);
+t_data				*parse_flags(char **fmt);
+char				*parse_opt_flags(char *format, t_data *data);
+char				*parse_mwidth_flag(char *format, t_data *data);
+char				*parse_prec_flag(char *format, t_data *data);
+char				*parse_jzh_flags(char *format, t_data *data);
 
 void				print_flags(t_data *data);
 
