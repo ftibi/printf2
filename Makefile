@@ -45,7 +45,7 @@ re: fclean all
 .PHONY: all, clean, fclean, re
 
 norme:
-	norminette $(SRC)
+	norminette $(SRC) includes/ft_printf.h
 
 test: all
 	$(CC) -o test main.c $(NAME)
