@@ -1,3 +1,7 @@
+test
+.gcc-flags.json
+.DS_Store
+
 # Object files
 *.o
 *.ko

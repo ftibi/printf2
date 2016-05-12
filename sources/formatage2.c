@@ -14,11 +14,11 @@
 
 static t_lst		*prec_null_fmt(t_lst *lst, t_data *data)
 {
-	if (data->precision == 0 && ft_strchr(ft_strdup("idDoOuUxX"),
+	if (data->precision == 0 && ft_strchr("idDoOuUxX",
 			*(data->fmt)) && !data->hash && (lst_sum_digit(lst) == 0))
 		lst = del_all_digits(lst)	;
-	if (data->precision == 0 && ((ft_strchr(ft_strdup("xX"), *(data->fmt))
-			&& data->hash) || (ft_strchr(ft_strdup("pP"), *(data->fmt)))))
+	if (data->precision == 0 && ((ft_strchr("xX", *(data->fmt))
+			&& data->hash) || (ft_strchr("pP", *(data->fmt)))))
 	{
 		if (lst_sum_alnum(lst) == 0)
 		{
@@ -66,7 +66,7 @@ static t_lst		*pos_pres_fmt(t_lst *lst, t_data *data)
 		while (data->precision > lst_len(lst) - 2)
 			lst->next->next = pushfront_lst(lst->next->next, '0');
 	}
-	if (ft_strchr(ft_strdup("idDxXoOuU"), *(data->fmt)))
+	if (ft_strchr("idDxXoOuU", *(data->fmt)))
 	{
 		while (lst_len(lst) < data->precision + (lst->c == '-') +
 				(lst->c == '+'))
@@ -86,9 +86,9 @@ t_lst				*precisionfmt(t_lst *lst, t_data *data)
 
 	start = lst;
 	lst = prec_null_fmt(lst, data);
-	if (data->precision > 0 && ft_strchr(ft_strdup("S"), *(data->fmt)))
+	if (data->precision > 0 && ft_strchr("S", *(data->fmt)))
 		lst = 0;
-	else if (data->precision >= 0 && ft_strchr(ft_strdup("sS"), *(data->fmt)))
+	else if (data->precision >= 0 && ft_strchr("sS", *(data->fmt)))
 		lst = pos_pres_s(lst, data);
 	else if (data->precision > 0)
 		lst = pos_pres_fmt(lst, data);
