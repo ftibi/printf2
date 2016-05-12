@@ -15,9 +15,7 @@
 char	*ft_strrev(char *str)
 {
 	char	*rev;
-	char	*start;
 
-	start = str;
 	rev = ft_strdup(str);
 	while (*rev)
 		rev++;
@@ -30,7 +28,6 @@ char	*ft_strrev(char *str)
 			rev--;
 	}
 	return (rev);
-	free(start);
 }
 
 void	fill_maskb(char **mask2, char **rev2, char *start_mask)
@@ -55,10 +52,12 @@ char	*fill_mask(char *mask, int c)
 {
 	char	*tmp;
 	char	*rev;
+	char	*start_rev;
 	char	*start_mask;
 
 	tmp = ft_itoa_base(c, 2);
 	rev = ft_strrev(tmp);
+	start_rev = rev;
 	start_mask = mask;
 	while (*mask)
 		mask++;
@@ -72,6 +71,8 @@ char	*fill_mask(char *mask, int c)
 			*mask = '0';
 		mask++;
 	}
+	free(start_rev);
+	free(tmp);
 	return (start_mask);
 }
 
@@ -80,10 +81,8 @@ t_lst	*print_mask(char *mask, int oct, t_lst *lst)
 	int			i;
 	int			j;
 	char		c[4];
-	char		*start_mask;
 
 	i = 0;
-	start_mask = mask;
 	while (i < oct)
 	{
 		j = 7;
