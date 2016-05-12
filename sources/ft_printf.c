@@ -45,6 +45,7 @@ int		ft_printf(const char *format, ...)
 	count = 0;
 	va_start(ap, format);
 	fct_lst = fct_init();
+	data = 0;
 	while (*format)
 	{
 		while (*format != '%' && *format)
@@ -61,5 +62,8 @@ int		ft_printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
+	free_lstfct(fct_lst);
+	if (data)
+		free(data);
 	return (count);
 }

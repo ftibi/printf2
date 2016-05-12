@@ -28,6 +28,7 @@ typedef struct		s_fct
 
 }					t_fct;
 void				ft_error(int nb);
+void				free_lstfct(t_fct *lst);
 
 typedef struct		s_data
 {

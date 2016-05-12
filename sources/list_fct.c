@@ -88,3 +88,16 @@ void		*get_fct(t_fct *start, char conv, t_data *data)
 	}
 	return (0);
 }
+
+void		free_lstfct(t_fct *lst)
+{
+	t_fct	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+		tmp = 0;
+	}
+}
